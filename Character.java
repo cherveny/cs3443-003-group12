@@ -1,5 +1,19 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
+/***********************************************
+ *  This class is meant to store all the info for a single character
+ *  it'll be handled as an object for multiple characters
+ *  
+ * @author Mazen Shaban
+ *
+ */
 public class Character {
+	
+	
 	
 	//////////   B A T T L E  S T A T S   ////////////
 	private int HP;
@@ -12,17 +26,23 @@ public class Character {
 	private int dsFailures;
 
 	//////////   E Q U I P M E N T    S T A T S   ////////////
-	private int CP;
+/*	private int CP;
 	private int SP;
-	private int EP;
+	private int EP;				Not enough time to implement equipment
 	private int GP;
 	private int PP;
 	private String equipment = "";
-	
+	*/
+	String trait = "";
+	private ArrayList<skill> chosenSkills = new ArrayList<skill>();
 	//class here
-	//race here
 	
+	Race race;
+	int raceChoice;
 	
+
+	
+
 	//////////   S A V I N G     T H R O W S   ////////////
 	
 	
@@ -33,12 +53,12 @@ public class Character {
 	private int passiveWisdom;
 	private int inspiration;
 	private int proficiencyBonus;
-	private String profiNLang = "";
+
 	private String playerName = "";
-	private String faction = "";
+
 	private String alignment = "";
 	private String characterName = "";
-	private int exp;
+
 	private int level;
 	
 	
@@ -81,7 +101,23 @@ public class Character {
 		this.intelligence = 12;
 		this.wisdom = 10;
 		this.charisma = 8;
+		try {
+		File f = new File("Skill Initializer");
+		FileReader fr = new FileReader(f);
+		BufferedReader br = new BufferedReader(fr);
+		String rline;
+		while ((rline = br.readLine()) != null) {
+			skill temp = new skill(rline);
+			chosenSkills.add(temp);
+		}
+		br.close();
+		fr.close();
+		}catch (IOException e) {
+			System.out.println("File Error: Initializing character skills FAILED");
+		}
 	}
+		
+	
 	
 	
 	//////////   B A S E     6     S T A T S     S E T T E R S   ///////////
@@ -152,6 +188,7 @@ public class Character {
 	public void setAcrobatics( int acro )
 	{
 		this.acrobatics = acro;
+		
 	}
 
 	public void setAnimalHandling( int aniHan )
@@ -331,5 +368,192 @@ public class Character {
 		return this.survival;
 	}
 	
+	////////////////   B A T T L E     S T A T S    S E T T E R S    &    G E T T E R S    /////////////////
+	
+
+	public int getHP() {
+		return HP;
+	}
+
+	public void setHP( int hp) {
+		HP = hp;
+	}
+	
+	public int getCurHP() {
+		return curHP;
+	}
+	
+	public void setCurHP ( int curhp) {
+		curHP = curhp;
+	}
+	
+	public int getTempHP() {
+		return tempHP;
+	}
+	
+	public void setTempHP(int temphp) {
+		tempHP = temphp;
+	}
+	
+	public int getSpeed() {
+		return speed;
+	}
+	
+	public void setSpeed(int spee) {
+		speed = spee;
+	}
+	
+	public int getAC() {
+		return AC;
+	}
+	
+	public void setAC(int ac) {
+		AC = ac;
+	}
+	
+	public int getInitiative() {
+		return initiative;
+	}
+	
+	public void setInitative( int init) {
+		initiative = init;
+	}
+	
+	public int getDSsuccess() {
+		return dsSuccess;
+	}
+	
+	public void setDSsuccess( int dsS) {
+		dsSuccess= dsS;
+	}
+	public int getDSfailures() {
+		return dsFailures;
+	}
+	
+	public void setDSfailures( int dsF) {
+		dsFailures = dsF;
+	}
+
+
+
+	public int getPassWisdom() {
+		return passiveWisdom;
+	}
+	
+	public void setPassiveWisdom(int pasWis) {
+		passiveWisdom = pasWis;
+	}
+	
+	public int getInspiration() {
+		return inspiration;
+	}
+	
+	public void setInspiration( int inspir) {
+		inspiration = inspir;
+	}
+	
+	public int getProfBonus() {
+		return proficiencyBonus;
+	}
+	
+	public void setProfBonus( int bon) {
+		proficiencyBonus =bon;
+	}
+	
+	public String getPlayerName() {
+		return playerName;
+	}
+	
+	public void setPlayerName(String name) {
+		playerName = name;
+	}
+	
+	public String getAlignment() {
+		return alignment;
+	}
+	
+	public void setAlignment(String align) {
+		alignment = align;
+	}
+	
+	public String getCharName() {
+		return characterName;
+	}
+	
+	public void setCharName( String name) {
+		characterName = name;
+	}
+	
+	public int getLevel() {
+		return level;
+	}
+	
+	public void setLevel() {
+		// implement by grabbing level from class level
+	}
+
+	public void setRaceChoice(int c) {
+		raceChoice = c;
+	}
+	public int getRaceChoice() {
+		return raceChoice;
+	}
+	
+	////////////////////       Methods other than setters and getters      //////////////////////////////////
+	
+	public void chooseRace(int choice) {
+		raceChoice = choice;
+switch (choice) {
+		
+		case 1:
+			race = new Dragonborn();
+			break;
+		case 2:
+			race = new Dwarf();
+			break;
+		case 3:
+			race = new Elf();
+			break;
+		case 4:
+			race = new Gnome();
+			break;
+		case 5:
+			race = new HalfElf();
+			break;
+		case 6:
+			race = new Halfling();
+			break;
+		case 7:
+			race = new HalfOrc();
+			break;
+		case 8:
+			race = new Human();
+			break;
+		case 9:
+			race = new Tiefling();
+			break;
+		default :
+			System.out.println("Unknown Class");
+			break;
+				
+			
+		}
+		
+	}
+	
+	 void addRaceinfo() {
+		this.strength = this.strength + race.getStrength(); 
+		this.dexterity = this.dexterity + race.getDexterity();
+		this.constitution = this.constitution + race.getConstituition();
+		this.intelligence = this.intelligence + race.getIntelligence();
+		this.wisdom = this.wisdom + race.getWisdom();
+		this.charisma = this.charisma + race.getCharisma();
+		this.speed = race.getSpeed();
+		this.trait = race.getTrait();
+		
+		
+	}
+	
 	
 }
+
