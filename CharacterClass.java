@@ -20,7 +20,7 @@ public class CharacterClass {
     // character type descriptions for choosing a character type
     private static HashMap<String,String> descriptions  = new HashMap<String,String>();
 
-    // what weapon proficencies are received
+    // what weapon proficencies bonuses are received
     private static Integer[] weaponProficiencies = new Integer[levelCap];
 
     // hit dice
@@ -40,6 +40,18 @@ public class CharacterClass {
 
     // ability score improvements, array of boolean, true at levels with an improvement
     private static Boolean[] abilityImprovement = new Boolean[levelCap];
+
+    // weapon proficiencies
+    private static String weaponProfList = "";
+
+    // armor proficiencies
+    private static String armorProfList = "";
+
+    // proficient saves
+    private static String profSaves = "";
+
+    // per level features
+    private static String[] features = new String[levelCap];
 
     // BARBARIAN ONLY: Rages
     private static Integer[] rages = new Integer[levelCap];
@@ -74,6 +86,21 @@ public class CharacterClass {
     public static String getClassChoice() {
         // After a class is chosen, remember the choice
         return classChoice;
+    }
+
+    public static String getProfSaves() {
+        // gets list of proficient saves
+        return profSaves;
+    }
+
+    public static String[] getFeatures() {
+        // gets features, per level, 0 = 1, 1 = 2
+        return features;
+    }
+
+    public static String getArmorProfList() {
+        // get list of proficient armors
+        return armorProfList;
     }
 
     public Integer[][] getWizardSpells() {
@@ -136,6 +163,8 @@ public class CharacterClass {
         return abilityImprovement;
     }
 
+
+
     ///////////////////
     // setters       //
     ///////////////////
@@ -150,6 +179,20 @@ public class CharacterClass {
         // once a character class is chosen, set it
         CharacterClass.classChoice = classChoice;
 
+    }
+
+    public static void setProfSaves(String profSaves) {
+        // sets proficient saves list
+        CharacterClass.profSaves = profSaves;
+    }
+
+    public static void setWeaponProfList(String weaponProfList) {
+        // set list of proficient weapons
+        CharacterClass.weaponProfList = weaponProfList;
+    }
+    public static void setArmorProfList(String armorProfList) {
+        // set list of proficient armors
+        CharacterClass.armorProfList = armorProfList;
     }
 
     public static void setRages(Integer[] rages) {
@@ -192,6 +235,11 @@ public class CharacterClass {
         CharacterClass.abilityImprovement = abilityImprovement;
     }
 
+    public static void setFeatures(String[] features) {
+        // sets features, per level, 0 = 1, 1 = 2
+        CharacterClass.features = features;
+    }
+
     /////////////////////////////
     // character class methods //
     /////////////////////////////
@@ -222,6 +270,7 @@ public class CharacterClass {
         Integer[]   spells = {-1,-1,-1,-1,-1};
         Integer[][] bigSpells = new Integer[levelCap][levelCap];
         Boolean[]   abilityImp = {false,false,false,true,false};
+        String[]   feature = new String[levelCap];
 
         try {
             setClassChoice("Barbarian");
@@ -249,6 +298,16 @@ public class CharacterClass {
             bigSpells[i] = spells;
         }
 
+        feature[0]="Rage, Unarmored Defense";
+        feature[1]="Reckless Attack, Danger Sense";
+        feature[2]="Primal Path";
+        feature[3]="Ability Score Improvement";
+        feature[4]="Extra Attack,Fast Movement";
+
+        setFeatures(feature);
+        setWeaponProfList("Simple weapons, martial weapons");
+        setArmorProfList("Light armor, medium armor, shields");
+        setProfSaves( "Strength, Constitution");
         setAbilityImprovement(abilityImp);
         setWizardSpells(bigSpells);
         setDruidSpells(bigSpells);
@@ -260,6 +319,7 @@ public class CharacterClass {
         setStartHP(12);
         //System.out.println(weaponProficiencies[4]);
         //System.out.println(wizardSpells[4][2]);
+        //System.out.println(features[2]);
     }
 
     ////////////////////////////////
