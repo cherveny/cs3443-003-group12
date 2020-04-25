@@ -69,10 +69,25 @@ public class CharacterClass {
         // returns the description of a character class
         // should be used when user is trying to decide upon a class
         // invalidCharacterClass: thrown if an unimplemented character class is picked
-        if (name.isBlank() || !descriptions.containsKey(name) ) {
+        if (name.equals("") || !descriptions.containsKey(name) ) {
             throw new invalidCharacterClass("Character class " + name + " undefined");
         }
         return (descriptions.get(name));
+    }
+
+    public static String listClasses() {
+        //  List available classes for use.
+        String classList = "";
+
+        Set<String> keys = descriptions.keySet();
+        for(String key: keys){
+
+            if (classList.isEmpty()) {
+                classList = key;
+            } else
+                classList = classList + " , " + key;
+        }
+        return (classList);
     }
 
 
@@ -82,6 +97,7 @@ public class CharacterClass {
     // for retrieving the data
 
     // SEE: getDescription() in display helpers section
+    // SEE: listClasses() in display helpers section
 
     public static String getClassChoice() {
         // After a class is chosen, remember the choice
@@ -128,20 +144,7 @@ public class CharacterClass {
         return weaponProficiencies;
     }
 
-    public static String listClasses() {
-        //  List available classes for use.
-        String classList = "";
 
-        Set<String> keys = descriptions.keySet();
-        for(String key: keys){
-
-            if (classList.isEmpty()) {
-                classList = key;
-            } else
-                classList = classList + " , " + key;
-        }
-        return (classList);
-    }
 
     public static Integer[] getRages() {
         // BARBARIAN ONLY:  get the number or rages, per level
@@ -248,7 +251,7 @@ public class CharacterClass {
 
     public static void chooseCharacterClass(String name) throws invalidCharacterClass {
         // validates character choice as one implemented, then sets choice.  then calls appropriate method to set values
-        if (name.isBlank() || !descriptions.containsKey(name) ) {
+        if (name.equals("") || !descriptions.containsKey(name) ) {
             throw new invalidCharacterClass("Character class " + name + " undefined");
         }
 
@@ -256,18 +259,104 @@ public class CharacterClass {
             case "Barbarian":
                 barbarianClass();
                 break;
+            case "Wizard":
+                wizardClass();
+                break;
             default:
                 throw new invalidCharacterClass("Character class " + name + " undefined");
         }
 
-    }
+    } // end chooseCharacterClass
+
+    public static void wizardClass() {
+        // set all values to match wizard being selected
+        Integer[]   profs = new Integer[levelCap];
+        Integer[]   spells = {0,0,0,0,0};
+        Integer[]   spellsC = {0,0,0,0,0};
+        Integer[][] bigSpells = new Integer[levelCap][levelCap];
+        Integer[][] bigSpellsC = new Integer[levelCap][levelCap];
+        Boolean[]   abilityImp = {false,false,false,true,false};
+        String[]    feature = new String[levelCap];
+
+        try {
+            setClassChoice("Wizard");
+        } catch (Exception e) {
+            System.out.println("Invalid Character choice");
+        }
+
+        for (int i = 0;i<levelCap;i++) {
+            // load up proficiency bonus levels
+            if(i== 5)
+                profs[i]=3;
+            else
+                profs[i]=2;
+        }
+
+        for(int i=0;i<levelCap;i++) {
+            // set all spell slots, bigSpells index 0 = 1, 1 = 2, spells indexed 0 =  camtrip, 1=level 1
+            switch(i) {
+                case 0:
+                    spells[0] = 3;
+                    spells[1] = 2;
+                    break;
+                case 1:
+                    spells[0] = 3;
+                    spells[1] = 3;
+                    break;
+                case 2:
+                    spells[0] = 3;
+                    spells[1] = 4;
+                    spells[2] = 2;
+                    break;
+                case 3:
+                    spells[0] = 4;
+                    spells[1] = 4;
+                    spells[2] = 3;
+                    break;
+                case 4:
+                    spells[0] = 4;
+                    spells[1] = 4;
+                    spells[2] = 3;
+                    spells[2] = 2;
+                    break;
+            } // end switch
+            bigSpells[i] = spells;
+        }
+
+
+        for(int i=0;i<levelCap;i++) {
+            // set all spell slots to -1 for no spells of cleric
+            bigSpellsC[i] = spellsC;
+        }
+
+        // set features per level
+        feature[0] = "Spellcasting, Arcane Recovery";
+        feature[1] = "Arcane Tradition";
+        feature[2] = "-";
+        feature[3] = "Ability Score Improvement";
+        feature[4] = "-";
+
+
+        setWeaponProficiencies(profs);
+        setWizardSpells(bigSpells);
+        //setDruidSpells(bigSpells);
+        setClericSpells(bigSpellsC);
+        setFeatures(feature);
+        setArmorProfList("None");
+        setWeaponProfList("Daggers, darts, slings, quarterstaffs, light crossbows");
+        setProfSaves( "Intelligence, Wisdom");
+        setHitDice(6);
+        setStartHP(6);
+        setAbilityImprovement(abilityImp);
+
+    } //end wizardClass
 
     public static void barbarianClass() {
         // set all values to match barbarian being selected
         Integer[] profs = new Integer[levelCap];
         Integer[] rages = new Integer[levelCap];
         Integer[] rageDamage = new Integer[levelCap];
-        Integer[]   spells = {-1,-1,-1,-1,-1};
+        Integer[]   spells = {0,0,0,0,0};
         Integer[][] bigSpells = new Integer[levelCap][levelCap];
         Boolean[]   abilityImp = {false,false,false,true,false};
         String[]   feature = new String[levelCap];
@@ -279,22 +368,17 @@ public class CharacterClass {
         }
 
         for (int i = 0;i<levelCap;i++) {
-            profs[i]=2;
-        }
-
-        for (int i = 0;i<levelCap;i++) {
+            // set load weapon prof bonus, rage damage and rages
             profs[i]=2;
             rageDamage[i]=2;
+            if(i<=1)
+                rages[i]=2;
+            else
+                rages[i]=3;
         }
-
-        for (int i = 0;i<levelCap;i++) {
-            // levels 1 and 2 get 2, 3,4 and 5 get 3.
-            rages[i]=2;
-            if (i>1) rages[i]++;
-        }
-
 
         for(int i=0;i<levelCap;i++) {
+            // set all spell slots to -1 for no spells
             bigSpells[i] = spells;
         }
 
@@ -339,6 +423,7 @@ public class CharacterClass {
 
     private void initCreateDescriptions() {
         // populate all the character type descriptions
+        // BARARIAN
         initAddClassDesc("Barbarian","A tall human tribesman strides through a blizzard, draped in fur and hefting his axe. " +
                 "He laughs as he charges toward the frost giant who dared poach his people’s elk herd.\n" +
                 "\n" +
@@ -379,8 +464,60 @@ public class CharacterClass {
                 "often a way of life for their native tribes, and the rootless life of the adventurer is little " +
                 "hardship for a barbarian. Some barbarians miss the close-knit family structures of the tribe, but" +
                 " eventually find them replaced by the bonds formed among the members of their adventuring parties.");
+        // WIZARD
+        initAddClassDesc("Wizard","Clad in the silver robes that denote her station, an elf closes her eyes" +
+                " to shut out the distractions of the battlefield and begins her quiet chant. Fingers weaving in front" +
+                " of her, she completes her spell and launches a tiny bead of fire toward the enemy ranks, where it" +
+                " erupts into a conflagration that engulfs the soldiers.\n" +
+                "\n" +
+                "Checking and rechecking his work, a human scribes an intricate magic circle in chalk on the bare stone" +
+                " floor, then sprinkles powdered iron along every line and graceful curve. When the circle is complete," +
+                " he drones a long incantation. A hole opens in space inside the circle, bringing a whiff of brimstone" +
+                " from the otherworldly plane beyond.\n" +
+                "\n" +
+                "Crouching on the floor in a dungeon intersection, a gnome tosses a handful of small bones inscribed " +
+                "with mystic symbols, muttering a few words of power over them. Closing his eyes to see the visions " +
+                "more clearly, he nods slowly, then opens his eyes and points down the passage to his left.\n" +
+                "\n" +
+                "Wizards are supreme magic-users, defined and united as a class by the spells they cast. Drawing on the" +
+                " subtle weave of magic that permeates the cosmos, wizards cast spells of explosive fire, arcing" +
+                " lightning, subtle deception, and brute-force mind control. Their magic conjures monsters from other " +
+                "planes of existence, glimpses the future, or turns slain foes into zombies. Their mightiest spells " +
+                "change one substance into another, call meteors down from the sky, or open portals to other worlds.\n" +
+                "\n" +
+                "Scholars of the Arcane\n" +
+                "Wild and enigmatic, varied in form and function, the power of magic draws students who seek to master" +
+                " its mysteries. Some aspire to become like the gods, shaping reality itself. Though the casting of a" +
+                " typical spell requires merely the utterance of a few strange words, fleeting gestures, and sometimes " +
+                "a pinch or clump of exotic materials, these surface components barely hint at the expertise attained " +
+                "after years of apprenticeship and countless hours of study.\n" +
+                "\n" +
+                "Wizards live and die by their spells. Everything else is secondary. They learn new spells as they " +
+                "experiment and grow in experience. They can also learn them from other wizards, from ancient tomes " +
+                "or inscriptions, and from ancient creatures (such as the fey) that are steeped in magic.\n" +
+                "\n" +
+                "The Lure of Knowledge\n" +
+                "Wizards’ lives are seldom mundane. The closest a wizard is likely to come to an ordinary life is " +
+                "working as a sage or lecturer in a library or university, teaching others the secrets of the " +
+                "multiverse. Other wizards sell their services as diviners, serve in military forces, or pursue lives" +
+                " of crime or domination.\n" +
+                "\n" +
+                "But the lure of knowledge and power calls even the most unadventurous wizards out of the safety of" +
+                " their libraries and laboratories and into crumbling ruins and lost cities. Most wizards believe that" +
+                " their counterparts in ancient civilizations knew secrets of magic that have been lost to the ages," +
+                " and discovering those secrets could unlock the path to a power greater than any magic available in " +
+                "the present age.\n" +
+                "\n" +
+                "Creating a Wizard\n" +
+                "Creating a wizard character demands a backstory dominated by at least one extraordinary event. How" +
+                " did your character first come into contact with magic? How did you discover you had an aptitude " +
+                "for it? Do you have a natural talent, or did you simply study hard and practice incessantly? Did you" +
+                " encounter a magical creature or an ancient tome that taught you the basics of magic?\n" +
+                "\n" +
+                "What drew you forth from your life of study? Did your first taste of magical knowledge leave you " +
+                "hungry for more? Have you received word of a secret repository of knowledge not yet plundered by any" +
+                " other wizard? Perhaps you’re simply eager to put your newfound magical skills to the test in the " +
+                "face of danger.");
     }
-
-
 
 }
