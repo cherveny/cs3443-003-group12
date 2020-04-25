@@ -8,6 +8,9 @@ public class CharacterClass {
     ////////////////////
     private static final Integer levelCap = 5;
 
+    // character type descriptions for choosing a character type
+    // SEMI-CONSTANT.  Created during constructor.  not touched afterwards
+    private static HashMap<String,String> descriptions  = new HashMap<String,String>();
 
     //////////////////
     //  data        //
@@ -17,8 +20,7 @@ public class CharacterClass {
     // Class Choice
     private static String classChoice = "";
 
-    // character type descriptions for choosing a character type
-    private static HashMap<String,String> descriptions  = new HashMap<String,String>();
+
 
     // what weapon proficencies bonuses are received
     private static Integer[] weaponProficiencies = new Integer[levelCap];
@@ -65,6 +67,40 @@ public class CharacterClass {
     //////////////////////
     // methods that chould/should help with display
 
+    public static void clear() {
+        // used if a user selected a class, but changed their mind.  Resets all values to init
+        classChoice = "";
+        Integer[]   profs = {0,0,0,0,0};
+        Integer[]   spells = {0,0,0,0,0};
+        Integer[][] bigSpells = new Integer[levelCap][levelCap];
+        Boolean[]   abilityImp = {false,false,false,false,false};
+        String[]    feature = new String[levelCap];
+
+        for(int i=0;i<levelCap;i++) {
+            // set all spell slots to 0 for no spells
+            bigSpells[i] = spells;
+        }
+
+        for(int i=0;i<levelCap;i++) {
+            // set all features to empty string
+            feature[i] = "";
+        }
+
+        setWeaponProficiencies(profs);
+        setWizardSpells(bigSpells);
+        setClericSpells(bigSpells);
+        setFeatures(feature);
+        setWeaponProficiencies("");
+        setWeaponProfList("");
+        setArmorProfList("");
+        setProfSaves("");
+        setAbilityImprovement(abilityImp);
+        setRages(spells);
+        setRageDamage(spells);
+        setHitDice(0);
+        setStartHP(0);
+    } // end clear
+
     public static String getDescription(String name) throws invalidCharacterClass {
         // returns the description of a character class
         // should be used when user is trying to decide upon a class
@@ -73,7 +109,7 @@ public class CharacterClass {
             throw new invalidCharacterClass("Character class " + name + " undefined");
         }
         return (descriptions.get(name));
-    }
+    } // end getDescription
 
     public static String listClasses() {
         //  List available classes for use.
@@ -88,7 +124,7 @@ public class CharacterClass {
                 classList = classList + " , " + key;
         }
         return (classList);
-    }
+    } // end listClasses
 
 
     ///////////////////
@@ -143,7 +179,6 @@ public class CharacterClass {
         // returns an array of proficiency bonuses at each level
         return weaponProficiencies;
     }
-
 
 
     public static Integer[] getRages() {
