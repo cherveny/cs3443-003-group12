@@ -90,7 +90,7 @@ public class CharacterClass {
         setWizardSpells(bigSpells);
         setClericSpells(bigSpells);
         setFeatures(feature);
-        setWeaponProficiencies("");
+        setWeaponProficiencies(spells);
         setWeaponProfList("");
         setArmorProfList("");
         setProfSaves("");
