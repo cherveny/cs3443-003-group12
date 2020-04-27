@@ -2,6 +2,8 @@ public class MinorIllusion extends Spell {
   
   private int Level = 0;
   
+  private String name = "Minor Illusion";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Minor Illusion\n"+
@@ -27,6 +29,11 @@ public class MinorIllusion extends Spell {
 public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
