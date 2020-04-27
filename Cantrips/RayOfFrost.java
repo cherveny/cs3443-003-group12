@@ -2,6 +2,8 @@ public class RayOfFrost extends Spell {
   
   private int Level = 0;
   
+  private String name = "Ray of Frost";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Ray of Frost\n"+
@@ -27,6 +29,11 @@ public class RayOfFrost extends Spell {
 public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
