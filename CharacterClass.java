@@ -321,7 +321,7 @@ public class CharacterClass {
 
         for (int i = 0;i<levelCap;i++) {
             // load up proficiency bonus levels
-            if(i== 5)
+            if(i==4)
                 profs[i]=3;
             else
                 profs[i]=2;
@@ -382,6 +382,88 @@ public class CharacterClass {
         setProfSaves( "Intelligence, Wisdom");
         setHitDice(6);
         setStartHP(6);
+        setAbilityImprovement(abilityImp);
+
+    } //end wizardClass
+
+    public static void clericClass() {
+        // set all values to match cerlic being selected
+        Integer[]   profs = new Integer[levelCap];
+        Integer[]   spells = {0,0,0,0,0};
+        Integer[]   spellsW = {0,0,0,0,0};
+        Integer[][] bigSpells = new Integer[levelCap][levelCap];
+        Integer[][] bigSpellsW = new Integer[levelCap][levelCap];
+        Boolean[]   abilityImp = {false,false,false,true,false};
+        String[]    feature = new String[levelCap];
+
+        try {
+            setClassChoice("Cleric");
+        } catch (Exception e) {
+            System.out.println("Invalid Character choice");
+        }
+
+        for (int i = 0;i<levelCap;i++) {
+            // load up proficiency bonus levels
+            if(i==4)
+                profs[i]=3;
+            else
+                profs[i]=2;
+        }
+
+        for(int i=0;i<levelCap;i++) {
+            // set all spell slots, bigSpells index 0 = 1, 1 = 2, spells indexed 0 =  camtrip, 1=level 1
+            switch(i) {
+                case 0:
+                    spells[0] = 3;
+                    spells[1] = 2;
+                    break;
+                case 1:
+                    spells[0] = 3;
+                    spells[1] = 3;
+                    break;
+                case 2:
+                    spells[0] = 3;
+                    spells[1] = 4;
+                    spells[2] = 2;
+                    break;
+                case 3:
+                    spells[0] = 4;
+                    spells[1] = 4;
+                    spells[2] = 3;
+                    break;
+                case 4:
+                    spells[0] = 4;
+                    spells[1] = 4;
+                    spells[2] = 3;
+                    spells[2] = 2;
+                    break;
+            } // end switch
+            bigSpells[i] = spells;
+        }
+
+
+        for(int i=0;i<levelCap;i++) {
+            // set all spell slots to -1 for no spells of cleric
+            bigSpellsW[i] = spellsW;
+        }
+
+        // set features per level
+        feature[0] = "Spellcasting, Divine Domain";
+        feature[1] = "Channel Divinity (1/rest), Divine Domain Feature";
+        feature[2] = "-";
+        feature[3] = "Ability Score Improvement";
+        feature[4] = "Destroy Undead (CR 1/2)";
+
+
+        setWeaponProficiencies(profs);
+        setWizardSpells(bigSpellsW);
+        setClericSpells(bigSpells);
+        setFeatures(feature);
+        setArmorProfList("Light armor, medium armor, shields");
+        setWeaponProfList("Simple weapons");
+        setProfSaves( "Wisdom, Charisma");
+        setHitDice(8);
+        setStartHP(8);
         setAbilityImprovement(abilityImp);
 
     } //end wizardClass
@@ -553,6 +635,62 @@ public class CharacterClass {
                 "hungry for more? Have you received word of a secret repository of knowledge not yet plundered by any" +
                 " other wizard? Perhaps you’re simply eager to put your newfound magical skills to the test in the " +
                 "face of danger.");
-    }
+        //CLERIC
+        initAddClassDesc("Cleric","Arms and eyes upraised toward the sun and a prayer on his lips, an elf " +
+                "begins to glow with an inner light that spills out to heal his battle-worn companions.\n" +
+                "\n" +
+                "Chanting a song of glory, a dwarf swings his axe in wide swaths to cut through the ranks of orcs " +
+                "arrayed against him, shouting praise to the gods with every foe’s fall.\n" +
+                "\n" +
+                "Calling down a curse upon the forces of undeath, a human lifts her holy symbol as light pours from it" +
+                " to drive back the zombies crowding in on her companions.\n" +
+                "\n" +
+                "Clerics are intermediaries between the mortal world and the distant planes of the gods. As varied as" +
+                " the gods they serve, clerics strive to embody the handiwork of their deities. No ordinary priest," +
+                " a cleric is imbued with divine magic.\n" +
+                "\n" +
+                "Healers and Warriors\n" +
+                "Divine magic, as the name suggests, is the power of the gods, flowing from them into the world. " +
+                "Clerics are conduits for that power, manifesting it as miraculous effects. The gods don’t grant this" +
+                " power to everyone who seeks it, but only to those chosen to fulfill a high calling.\n" +
+                "\n" +
+                "Harnessing divine magic doesn’t rely on study or training. A cleric might learn formulaic prayers and" +
+                " ancient rites, but the ability to cast cleric spells relies on devotion and an intuitive sense of a " +
+                "deity’s wishes.\n" +
+                "\n" +
+                "Clerics combine the helpful magic of healing and inspiring their allies with spells that harm and " +
+                "hinder foes. They can provoke awe and dread, lay curses of plague or poison, and even call down flames" +
+                " from heaven to consume their enemies. For those evildoers who will benefit most from a mace to the " +
+                "head, clerics depend on their combat training to let them wade into melee with the power of the gods" +
+                " on their side.\n" +
+                "\n" +
+                "Divine Agents\n" +
+                "Not every acolyte or officiant at a temple or shrine is a cleric. Some priests are called to a simple " +
+                "life of temple service, carrying out their gods’ will through prayer and sacrifice, not by magic" +
+                " and strength of arms. In some cities, priesthood amounts to a political office, viewed as a stepping" +
+                " stone to higher positions of authority and involving no communion with a god at all. True clerics" +
+                " are rare in most hierarchies.\n" +
+                "\n" +
+                "When a cleric takes up an adventuring life, it is usually because his or her god demands it. Pursuing " +
+                "the goals of the gods often involves braving dangers beyond the walls of civilization, smiting evil or" +
+                " seeking holy relics in ancient tombs. Many clerics are also expected to protect their deities’" +
+                " worshipers, which can mean fighting rampaging orcs, negotiating peace between warring nations, or " +
+                "sealing a portal that would allow a demon prince to enter the world.\n" +
+                "\n" +
+                "Most adventuring clerics maintain some connection to established temples and orders of their faiths. " +
+                "A temple might ask for a cleric’s aid, or a high priest might be in a position to demand it.\n" +
+                "\n" +
+                "Creating a Cleric\n" +
+                "As you create a cleric, the most important question to consider is which deity to serve and what " +
+                "principles you want your character to embody. The Gods of the Multiverse section includes lists of " +
+                "many of the gods of the multiverse. Check with your DM to learn which deities are in your campaign.\n" +
+                "\n" +
+                "Once you’ve chosen a deity, consider your cleric’s relationship to that god. Did you enter this" +
+                " service willingly? Or did the god choose you, impelling you into service with no regard for your" +
+                " wishes? How do the temple priests of your faith regard you: as a champion or a troublemaker? What" +
+                " are your ultimate goals? Does your deity have a special task in mind for you? Or are you striving" +
+                " to prove yourself worthy of a great quest?");
+
+    } // end initCreateDescriptions
 
 }
