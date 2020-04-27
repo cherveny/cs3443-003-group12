@@ -2,6 +2,7 @@ public class Sanctuary extends Spell {
   
   private int Level = 1;
   
+  private String name = "Sanctuary";
   private String ClassRequirement[] = {"Cleric"};
   
   private String Description = "Spell: Sanctuary\n"+
@@ -29,6 +30,11 @@ public class Sanctuary extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
