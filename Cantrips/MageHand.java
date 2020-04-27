@@ -1,5 +1,6 @@
 public class MageHand extends Spell{
   private int Level = 0;
+  private String name = " Mage Hand";
   private String ClassRequirement[] = {"Wizard"};
   private String Description = "Spell: Mage Hand\n"+
                        "Casting Time: 1 Action\n"+
@@ -24,6 +25,11 @@ public class MageHand extends Spell{
 public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
