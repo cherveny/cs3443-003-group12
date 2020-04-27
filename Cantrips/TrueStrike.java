@@ -2,6 +2,8 @@ public class TrueStrike extends Spell {
   
   private int Level = 0;
   
+  private String name = "True Strike";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: True Strike\n"+
@@ -26,6 +28,11 @@ public class TrueStrike extends Spell {
 public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
