@@ -1,7 +1,7 @@
 public class AbsorbElements extends Spell {
   
   private int Level = 1;
-  private String name = Absorb Elements";
+  private String name = "Absorb Elements";
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Absorb Elements\n"+
