@@ -2,6 +2,8 @@ public class IllusoryScript extends Spell {
   
   private int Level = 1;
   
+  private String name = "Illusory Script";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Illusory Script\n"+
@@ -29,6 +31,11 @@ public class IllusoryScript extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
