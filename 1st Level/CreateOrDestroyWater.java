@@ -2,6 +2,8 @@ public class CreateOrDestroyWater extends Spell {
   
   private int Level = 1;
   
+  private String name = "Create Or Destroy Water";
+  
   private String ClassRequirement[] = {"Cleric"};
   
   private String Description = "Spell: Create or Destroy Water\n"+
@@ -29,6 +31,11 @@ public class CreateOrDestroyWater extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
