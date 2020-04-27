@@ -24,7 +24,7 @@ public class Character {
 	private int initiative;
 	private int dsSuccess;
 	private int dsFailures;
-
+	private int HitDice;
 	//////////   E Q U I P M E N T    S T A T S   ////////////
 /*	private int CP;
 	private int SP;
@@ -35,8 +35,8 @@ public class Character {
 	*/
 	String trait = "";
 	private ArrayList<skill> chosenSkills = new ArrayList<skill>();
-	//class here
-	
+	private ArrayList<Spell> SpellList = new ArrayList<Spell>();
+	CharacterClass cClass;
 	Race race;
 	int raceChoice;
 	
@@ -44,7 +44,12 @@ public class Character {
 	
 
 	//////////   S A V I N G     T H R O W S   ////////////
-	
+	private int strengthSave = 0;
+	private int dexteritySave  = 0;
+	private int constitutionSave = 0;
+	private int intelligenceSave = 0;
+	private int wisdomSave = 0;
+	private int charismaSave = 0;
 	
 	//////////   A T T A C K S    &    S P E L L C A S T I N G   ////////////
 	
@@ -53,7 +58,7 @@ public class Character {
 	private int passiveWisdom;
 	private int inspiration;
 	private int proficiencyBonus;
-
+	private String chosenClass ="";
 	private String playerName = "";
 
 	private String alignment = "";
@@ -62,7 +67,7 @@ public class Character {
 	private int level;
 	
 	
-	//////////   B A S E     6     S T A T S   ////////////
+	//////////   B A S E     6     S T A T S        +      modifiers    ////////////
 	private int strength = 0;
 	private int dexterity = 0;
 	private int constitution = 0;
@@ -70,6 +75,12 @@ public class Character {
 	private int wisdom = 0;
 	private int charisma = 0;
 	
+	private int strengthMod = 0;
+	private int dexterityMod = 0;
+	private int constitutionMod = 0;
+	private int intelligenceMod = 0;
+	private int wisdomMod = 0;
+	private int charismaMod = 0;
 	
 	//////////  S K I L L S  ////////////
 	private int acrobatics;
@@ -415,8 +426,8 @@ public class Character {
 		return initiative;
 	}
 	
-	public void setInitative( int init) {
-		initiative = init;
+	public void setInitiative( ) {
+		initiative = dexterityMod;
 	}
 	
 	public int getDSsuccess() {
@@ -491,7 +502,10 @@ public class Character {
 	public void setLevel() {
 		// implement by grabbing level from class level
 	}
-
+	
+	public void setLevel(int lvl) {
+		level = lvl;
+	}
 	public void setRaceChoice(int c) {
 		raceChoice = c;
 	}
@@ -499,11 +513,27 @@ public class Character {
 		return raceChoice;
 	}
 	
+	public void setChosenClass(String chosen) {
+		chosenClass = chosen;
+	}
+	public String getChosenClass() {
+		return chosenClass;
+	}
 	////////////////////       Methods other than setters and getters      //////////////////////////////////
-	
+	public void chooseClass() {
+		cClass = new CharacterClass(chosenClass);
+		
+	}
+	public void chosenSkill(String name) {
+		for (int i = 0; i < chosenSkills.size(); i++) {
+			if (chosenSkills.get(i).getSkillName().contains(name)) {
+				chosenSkills.get(i).setChoice();
+			}
+		}
+	}
 	public void chooseRace(int choice) {
 		raceChoice = choice;
-switch (choice) {
+	switch (choice) {
 		
 		case 1:
 			race = new Dragonborn();
@@ -553,7 +583,65 @@ switch (choice) {
 		
 		
 	}
-	
-	
+	 
+	 void abilityModifiers() {
+		 int minus;
+		 
+		 minus = strength - 10;
+		 strengthMod = (int) Math.floor(((double )minus/2));
+		 
+		 minus = dexterity - 10;
+		 dexterityMod = (int) Math.floor(((double )minus/2));
+		 
+		 minus = constitution - 10;
+		 constitutionMod = (int) Math.floor(((double )minus/2));
+		 
+		 minus = intelligence - 10;
+		 intelligenceMod = (int) Math.floor(((double )minus/2));
+		 
+		 minus = wisdom - 10;
+		 wisdomMod = (int) Math.floor(((double )minus/2));
+		 
+		 minus = charisma - 10;
+		 charismaMod = (int) Math.floor(((double )minus/2));
+	 }
+	 
+	 public void setSavingThrows ( String s) {
+		
+		 if (s.contains("Strength")) {
+			 strengthSave = strengthMod + proficiencyBonus;
+		 }
+		 if (s.contains("Dexterity")) {
+			 dexteritySave = dexterityMod + proficiencyBonus;
+		 }
+		 if (s.contains("Constitution")) {
+			 constitutionSave = constitutionMod + proficiencyBonus;
+		 }
+		 if (s.contains("Intelligence")) {
+			 intelligenceSave = intelligenceMod + proficiencyBonus;
+		 }
+		 if (s.contains("Sisdom")) {
+			 wisdomSave = wisdomMod + proficiencyBonus;
+		 }
+		 if (s.contains("Charisma")) {
+			 charismaSave = charismaMod + proficiencyBonus;
+		 }
+	 }
+	public void createHP() {
+		HP = cClass.getStartHP() + constitutionMod;
+		HitDice = cClass.getHitDice();
+	}
+	public void levelUP() {
+		HP = HP + DiceRoll.DiceThrow(HitDice);
+		level = level +1;
+		///////////////////////////      FILL OUT FOR LEVEL UP      ***************************************************************
+		
+	}
+	public void addSpell(Spell s) {
+		SpellList.add(s);
+	}
+	public ArrayList<Spell> getSpellList() {
+		return SpellList;
+	}
 }
 
