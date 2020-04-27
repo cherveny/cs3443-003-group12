@@ -6,8 +6,8 @@ public class CharacterClass {
     ////////////////////
     // CONSTANTS      //
     ////////////////////
-    private static final Integer levelCap = 5;
-    private static final Integer profCap = 10;
+    public static final Integer levelCap = 5;
+    public static final Integer profCap = 10;
 
     // character type descriptions for choosing a character type
     // SEMI-CONSTANT.  Created during constructor.  not touched afterwards
