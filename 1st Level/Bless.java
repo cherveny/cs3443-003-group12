@@ -2,6 +2,8 @@ public class Bless extends Spell {
   
   private int Level = 1;
   
+  private String name = "Bless" ;
+  
   private String ClassRequirement[] = {"Cleric"};
   
   private String Description = "Spell: Bless\n"+
@@ -29,6 +31,11 @@ public class Bless extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+  
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
