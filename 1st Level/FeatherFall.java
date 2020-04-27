@@ -2,6 +2,8 @@ public class FeatherFall extends Spell {
   
   private int Level = 1;
   
+  private String name = "Feather Fall";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Feather Fall\n"+
@@ -29,6 +31,11 @@ public class FeatherFall extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
