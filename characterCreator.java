@@ -17,5 +17,20 @@ public class characterCreator {
         }
         //System.out.println(cc.getRages()[2]);
 
+        try {
+            System.out.println(cc.getDescription("Cleric"));
+//            cc.chooseCharacterClass("Kumquat");
+            cc.chooseCharacterClass("Cleric");
+            System.out.println(cc.getDescription("Wizard"));
+//            cc.chooseCharacterClass("Kumquat");
+            cc.chooseCharacterClass("Wizard");
+            System.out.println(cc.getDescription("Rogue"));
+//            cc.chooseCharacterClass("Kumquat");
+            cc.chooseCharacterClass("Rogue");
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }

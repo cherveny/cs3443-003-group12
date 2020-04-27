@@ -60,6 +60,9 @@ public class CharacterClass {
     // BARBARIAN ONLY: RageDamage
     private static Integer[] rageDamage = new Integer[levelCap];
 
+    // THEIF ONLY: sneakAttack
+    private static String[] sneakAttack = new String[levelCap];
+
 
     //////////////////////
     // display helpers  //
@@ -103,6 +106,7 @@ public class CharacterClass {
         setRageDamage(spells);
         setHitDice(0);
         setStartHP(0);
+        setSneakAttack(feature);
     } // end clear
 
     public static String getDescription(String name) throws invalidCharacterClass {
@@ -210,7 +214,10 @@ public class CharacterClass {
         return abilityImprovement;
     }
 
-
+    public static String[] getSneakAttack() {
+        // THEIF ONLY
+        return sneakAttack;
+    }
 
     ///////////////////
     // setters       //
@@ -287,6 +294,11 @@ public class CharacterClass {
         CharacterClass.features = features;
     }
 
+    public static void setSneakAttack(String[] sneakAttack) {
+        // THIEF ONLY
+        CharacterClass.sneakAttack = sneakAttack;
+    }
+
     /////////////////////////////
     // character class methods //
     /////////////////////////////
@@ -309,6 +321,9 @@ public class CharacterClass {
             case "Cleric":
                 clericClass();
                 break;
+            case "Rogue":
+                rogueClass();
+                break;
             default:
                 throw new invalidCharacterClass("Character class " + name + " undefined");
         }
@@ -327,6 +342,7 @@ public class CharacterClass {
         String[]    wProf = new String[profCap];
         String[]    aProf = new String[profCap];
         String[]    sProf = new String[profCap];
+        String[]    sneak = new String[levelCap];
 
         try {
             setClassChoice("Wizard");
@@ -377,6 +393,7 @@ public class CharacterClass {
         for(int i=0;i<levelCap;i++) {
             // set all spell slots to -1 for no spells of cleric
             bigSpellsC[i] = spellsC;
+            sneak[i] = "";
         }
 
         // set features per level
@@ -412,6 +429,7 @@ public class CharacterClass {
         setHitDice(6);
         setStartHP(6);
         setAbilityImprovement(abilityImp);
+        setSneakAttack(sneak);
 
     } //end wizardClass
 
@@ -427,6 +445,7 @@ public class CharacterClass {
         String[]    wProf = new String[profCap];
         String[]    aProf = new String[profCap];
         String[]    sProf = new String[profCap];
+        String[]    sneak = new String[levelCap];
 
         try {
             setClassChoice("Cleric");
@@ -477,7 +496,10 @@ public class CharacterClass {
         for(int i=0;i<levelCap;i++) {
             // set all spell slots to -1 for no spells of cleric
             bigSpellsW[i] = spellsW;
+            sneak[i] = "";
         }
+
+
 
         // set features per level
         feature[0] = "Spellcasting, Divine Domain";
@@ -508,8 +530,89 @@ public class CharacterClass {
         setHitDice(8);
         setStartHP(8);
         setAbilityImprovement(abilityImp);
+        setSneakAttack(sneak);
 
     } //end wizardClass
+
+    public static void rogueClass() {
+        // set all values to match barbarian being selected
+        Integer[] profs = new Integer[levelCap];
+        Integer[] rages = new Integer[levelCap];
+        Integer[] rageDamage = new Integer[levelCap];
+        Integer[] spells = {0, 0, 0, 0, 0};
+        Integer[][] bigSpells = new Integer[levelCap][levelCap];
+        Boolean[] abilityImp = {false, false, false, true, false};
+        String[] feature = new String[levelCap];
+        String[] wProf = new String[profCap];
+        String[] aProf = new String[profCap];
+        String[] sProf = new String[profCap];
+        String[] sneak = new String[levelCap];
+
+        try {
+            setClassChoice("Rogue");
+        } catch (Exception e) {
+            System.out.println("Invalid Character choice");
+        }
+
+        for (int i = 0; i < levelCap; i++) {
+            // set load weapon prof bonus, rage damage and rages
+            if (i<4)
+                profs[i] = 2;
+            else
+                profs[i] = 3;
+
+            switch (i) {
+                case 0:
+                case 1:
+                    sneak[i] = "1D6";
+                    break;
+                case 2:
+                case 3:
+                    sneak[i] = "2D6";
+                    break;
+                case 4:
+                    sneak[i] = "3D6";
+                    break;
+            } // end sneak switch
+        } // end for profs,sneak
+
+        for (int i = 0; i < levelCap; i++) {
+            // set all spell slots to -1 for no spells
+            bigSpells[i] = spells;
+        }
+
+        feature[0] = "Expertise, Sneak Attack, Thieves Cant";
+        feature[1] = "Cunning Action";
+        feature[2] = "Roguish Archetype";
+        feature[3] = "Ability Score Improvement";
+        feature[4] = "Uncanny Dodge";
+
+        wProf[0] = "Simple Weapons";
+        wProf[1] = "Hand Crossbows";
+        wProf[2] = "Longswords";
+        wProf[3] = "Rapiers";
+        wProf[4] = "Short Swords";
+
+        aProf[0] = "Light Armor";
+
+        setFeatures(feature);
+        //setWeaponProfList("Simple weapons, martial weapons");
+        setWeaponProfList(wProf);
+        //setArmorProfList("Light armor, medium armor, shields");
+        setArmorProfList(aProf);
+        //setProfSaves( "Strength, Constitution");
+        setProfSaves(sProf);
+        setAbilityImprovement(abilityImp);
+        setWizardSpells(bigSpells);
+        setDruidSpells(bigSpells);
+        setClericSpells(bigSpells);
+        setRageDamage(rageDamage);
+        setRages(rages);
+        setWeaponProficiencies(profs);
+        setHitDice(8);
+        setStartHP(8);
+        setSneakAttack(sneak);
+    } // end rogue class
 
     public static void barbarianClass() {
         // set all values to match barbarian being selected
@@ -523,6 +626,7 @@ public class CharacterClass {
         String[]    wProf = new String[profCap];
         String[]    aProf = new String[profCap];
         String[]    sProf = new String[profCap];
+        String[]    sneak = new String[levelCap];
 
         try {
             setClassChoice("Barbarian");
@@ -532,6 +636,7 @@ public class CharacterClass {
 
         for (int i = 0;i<levelCap;i++) {
             // set load weapon prof bonus, rage damage and rages
+            sneak[i]="";
             profs[i]=2;
             rageDamage[i]=2;
             if(i<=1)
@@ -574,6 +679,7 @@ public class CharacterClass {
         setWeaponProficiencies(profs);
         setHitDice(12);
         setStartHP(12);
+        setSneakAttack(sneak);
         //System.out.println(weaponProficiencies[4]);
         //System.out.println(wizardSpells[4][2]);
         //System.out.println(features[2]);
@@ -749,6 +855,60 @@ public class CharacterClass {
                 " are your ultimate goals? Does your deity have a special task in mind for you? Or are you striving" +
                 " to prove yourself worthy of a great quest?");
 
+        initAddClassDesc("Rogue","Signaling for her companions to wait, a halfling creeps forward throug" +
+                "h the dungeon hall. She presses an ear to the door, then pulls out a set of tools and picks the lock" +
+                " in the blink of an eye. Then she disappears into the shadows as her fighter friend moves forward" +
+                " to kick the door open.\n" +
+                "\n" +
+                "A human lurks in the shadows of an alley while his accomplice prepares for her part in the ambush." +
+                " When their target — a notorious slaver — passes the alleyway, the accomplice cries out, the slaver" +
+                " comes to investigate, and the assassin’s blade cuts his throat before he can make a sound.\n" +
+                "\n" +
+                "Suppressing a giggle, a gnome waggles her fingers and magically lifts the key ring from the guard’s " +
+                "belt. In a moment, the keys are in her hand, the cell door is open, and she and her companions are" +
+                " free to make their escape.\n" +
+                "\n" +
+                "Rogues rely on skill, stealth, and their foes’ vulnerabilities to get the upper hand in any situation." +
+                " They have a knack for finding the solution to just about any problem, demonstrating a resourcefulness" +
+                " and versatility that is the cornerstone of any successful adventuring party.\n" +
+                "\n" +
+                "Skill and Precision\n" +
+                "Rogues devote as much effort to mastering the use of a variety of skills as they do to perfecting " +
+                "their combat abilities, giving them a broad expertise that few other characters can match. Many rogues" +
+                " focus on stealth and deception, while others refine the skills that help them in a dungeon" +
+                " environment, such as climbing, finding and disarming traps, and opening locks.\n" +
+                "\n" +
+                "When it comes to combat, rogues prioritize cunning over brute strength. A rogue would rather make one" +
+                " precise strike, placing it exactly where the attack will hurt the target most, than wear an opponent" +
+                " down with a barrage of attacks. Rogues have an almost supernatural knack for avoiding danger, and a" +
+                " few learn magical tricks to supplement their other abilities.\n" +
+                "\n" +
+                "A Shady Living\n" +
+                "Every town and city has its share of rogues. Most of them live up to the worst stereotypes of the " +
+                "class, making a living as burglars, assassins, cutpurses, and con artists. Often, these scoundrels are" +
+                " organized into thieves’ guilds or crime families. Plenty of rogues operate independently, but even" +
+                " they sometimes recruit apprentices to help them in their scams and heists. A few rogues make an" +
+                " honest living as locksmiths, investigators, or exterminators, which can be a dangerous job in a world" +
+                " where dire rats—and wererats—haunt the sewers.\n" +
+                "\n" +
+                "As adventurers, rogues fall on both sides of the law. Some are hardened criminals who decide to seek " +
+                "their fortune in treasure hoards, while others take up a life of adventure to escape from the law." +
+                " Some have learned and perfected their skills with the explicit purpose of infiltrating ancient ruins " +
+                "and hidden crypts in search of treasure.\n" +
+                "\n" +
+                "Creating a Rogue\n" +
+                "As you create your rogue character, consider the character’s relationship to the law. Do you have a" +
+                " criminal past—or present? Are you on the run from the law or from an angry thieves’ guild master?" +
+                " Or did you leave your guild in search of bigger risks and bigger rewards? Is it greed that drives " +
+                "you in your adventures, or some other desire or ideal?\n" +
+                "\n" +
+                "What was the trigger that led you away from your previous life? Did a great con or heist gone " +
+                "terribly wrong cause you to reevaluate your career? Maybe you were lucky and a successful robbery " +
+                "gave you the coin you needed to escape the squalor of your life. Did wanderlust finally call you" +
+                " away from your home? Perhaps you suddenly found yourself cut off from your family or your mentor," +
+                " and you had to find a new means of support. Or maybe you made a new friend—another member of your" +
+                " adventuring party—who showed you new possibilities for earning a living and employing your " +
+                "particular talents.");
     } // end initCreateDescriptions
 
 }
