@@ -2,6 +2,8 @@ public class EarthTremor extends Spell {
   
   private int Level = 1;
   
+  private String name = "Earth Tremor";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Earth Tremor\n"+
@@ -29,6 +31,11 @@ public class EarthTremor extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
