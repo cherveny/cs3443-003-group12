@@ -4,5 +4,7 @@ public abstract class Spell {
   
   public abstract String[] getClassRequirement();
   
+  public abstract String getName();
+  
   public abstract String getDescription();
 }
