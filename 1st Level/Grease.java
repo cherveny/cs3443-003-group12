@@ -2,7 +2,7 @@ public class Grease extends Spell {
   
   private int Level = 1;
   
-  private String Name = "Grease";
+  private String name = "Grease";
   
   private String ClassRequirement[] = {"Wizard"};
   
