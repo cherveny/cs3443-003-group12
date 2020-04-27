@@ -2,6 +2,8 @@ public class Thunderwave extends Spell {
   
   private int Level = 1;
   
+  private String name = "Thunderwave";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Thunderwave\n"+
@@ -29,6 +31,11 @@ public class Thunderwave extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
