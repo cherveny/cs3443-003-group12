@@ -7,6 +7,7 @@ public class CharacterClass {
     // CONSTANTS      //
     ////////////////////
     private static final Integer levelCap = 5;
+    private static final Integer profCap = 10;
 
     // character type descriptions for choosing a character type
     // SEMI-CONSTANT.  Created during constructor.  not touched afterwards
@@ -19,8 +20,6 @@ public class CharacterClass {
 
     // Class Choice
     private static String classChoice = "";
-
-
 
     // what weapon proficencies bonuses are received
     private static Integer[] weaponProficiencies = new Integer[levelCap];
@@ -44,13 +43,13 @@ public class CharacterClass {
     private static Boolean[] abilityImprovement = new Boolean[levelCap];
 
     // weapon proficiencies
-    private static String weaponProfList = "";
+    private static String[] weaponProfList = new String[profCap];
 
     // armor proficiencies
-    private static String armorProfList = "";
+    private static String[] armorProfList = new String[profCap];
 
     // proficient saves
-    private static String profSaves = "";
+    private static String[] profSaves = new String[profCap];
 
     // per level features
     private static String[] features = new String[levelCap];
@@ -75,10 +74,15 @@ public class CharacterClass {
         Integer[][] bigSpells = new Integer[levelCap][levelCap];
         Boolean[]   abilityImp = {false,false,false,false,false};
         String[]    feature = new String[levelCap];
+        String[]    profStrings =  new String[profCap];
 
         for(int i=0;i<levelCap;i++) {
             // set all spell slots to 0 for no spells
             bigSpells[i] = spells;
+        }
+
+        for(int i=0;i<profCap; i++) {
+            profStrings[i] = "";
         }
 
         for(int i=0;i<levelCap;i++) {
@@ -91,9 +95,9 @@ public class CharacterClass {
         setClericSpells(bigSpells);
         setFeatures(feature);
         setWeaponProficiencies(spells);
-        setWeaponProfList("");
-        setArmorProfList("");
-        setProfSaves("");
+        setWeaponProfList(profStrings);
+        setArmorProfList(profStrings);
+        setProfSaves(profStrings);
         setAbilityImprovement(abilityImp);
         setRages(spells);
         setRageDamage(spells);
@@ -135,14 +139,10 @@ public class CharacterClass {
     // SEE: getDescription() in display helpers section
     // SEE: listClasses() in display helpers section
 
+
     public static String getClassChoice() {
         // After a class is chosen, remember the choice
         return classChoice;
-    }
-
-    public static String getProfSaves() {
-        // gets list of proficient saves
-        return profSaves;
     }
 
     public static String[] getFeatures() {
@@ -150,7 +150,16 @@ public class CharacterClass {
         return features;
     }
 
-    public static String getArmorProfList() {
+    public static String[] getProfSaves() {
+        // gets list of proficient saves
+        return profSaves;
+    }
+
+    public static String[] getWeaponProfList() {
+        return weaponProfList;
+    }
+
+    public static String[] getArmorProfList() {
         // get list of proficient armors
         return armorProfList;
     }
@@ -219,16 +228,16 @@ public class CharacterClass {
 
     }
 
-    public static void setProfSaves(String profSaves) {
+    public static void setProfSaves(String[] profSaves) {
         // sets proficient saves list
         CharacterClass.profSaves = profSaves;
     }
 
-    public static void setWeaponProfList(String weaponProfList) {
+    public static void setWeaponProfList(String[] weaponProfList) {
         // set list of proficient weapons
         CharacterClass.weaponProfList = weaponProfList;
     }
-    public static void setArmorProfList(String armorProfList) {
+    public static void setArmorProfList(String[] armorProfList) {
         // set list of proficient armors
         CharacterClass.armorProfList = armorProfList;
     }
@@ -297,6 +306,9 @@ public class CharacterClass {
             case "Wizard":
                 wizardClass();
                 break;
+            case "Cleric":
+                clericClass();
+                break;
             default:
                 throw new invalidCharacterClass("Character class " + name + " undefined");
         }
@@ -312,6 +324,9 @@ public class CharacterClass {
         Integer[][] bigSpellsC = new Integer[levelCap][levelCap];
         Boolean[]   abilityImp = {false,false,false,true,false};
         String[]    feature = new String[levelCap];
+        String[]    wProf = new String[profCap];
+        String[]    aProf = new String[profCap];
+        String[]    sProf = new String[profCap];
 
         try {
             setClassChoice("Wizard");
@@ -371,15 +386,29 @@ public class CharacterClass {
         feature[3] = "Ability Score Improvement";
         feature[4] = "-";
 
+        aProf[0] = "None";
+
+        wProf[0]="Daggers";
+        wProf[1]="Darts";
+        wProf[2]="Slings";
+        wProf[3]="Quarterstaffs";
+        wProf[4]="Light Crossbows";
+
+        sProf[0]="Intelligence";
+        sProf[1]="Wisdom";
 
         setWeaponProficiencies(profs);
         setWizardSpells(bigSpells);
         //setDruidSpells(bigSpells);
         setClericSpells(bigSpellsC);
         setFeatures(feature);
-        setArmorProfList("None");
-        setWeaponProfList("Daggers, darts, slings, quarterstaffs, light crossbows");
-        setProfSaves( "Intelligence, Wisdom");
+
+        setArmorProfList(aProf);
+
+        //setWeaponProfList("Daggers, darts, slings, quarterstaffs, light crossbows");
+        setWeaponProfList(wProf);
+        //setProfSaves( "Intelligence, Wisdom");
+        setProfSaves(sProf);
         setHitDice(6);
         setStartHP(6);
         setAbilityImprovement(abilityImp);
@@ -395,6 +424,9 @@ public class CharacterClass {
         Integer[][] bigSpellsW = new Integer[levelCap][levelCap];
         Boolean[]   abilityImp = {false,false,false,true,false};
         String[]    feature = new String[levelCap];
+        String[]    wProf = new String[profCap];
+        String[]    aProf = new String[profCap];
+        String[]    sProf = new String[profCap];
 
         try {
             setClassChoice("Cleric");
@@ -454,14 +486,25 @@ public class CharacterClass {
         feature[3] = "Ability Score Improvement";
         feature[4] = "Destroy Undead (CR 1/2)";
 
+        aProf[0]="Light Armor";
+        aProf[1]="Medium Armor";
+        aProf[1]="Shields";
+
+        wProf[0]="Simple Weapons";
+
+        sProf[0]="Wisdom";
+        sProf[1]="Charisma";
 
         setWeaponProficiencies(profs);
         setWizardSpells(bigSpellsW);
         setClericSpells(bigSpells);
         setFeatures(feature);
-        setArmorProfList("Light armor, medium armor, shields");
-        setWeaponProfList("Simple weapons");
-        setProfSaves( "Wisdom, Charisma");
+        //setArmorProfList("Light armor, medium armor, shields");
+        setArmorProfList(aProf);
+        //setWeaponProfList("Simple weapons");
+        setWeaponProfList(wProf);
+        //setProfSaves( "Wisdom, Charisma");
+        setProfSaves(sProf);
         setHitDice(8);
         setStartHP(8);
         setAbilityImprovement(abilityImp);
@@ -477,6 +520,9 @@ public class CharacterClass {
         Integer[][] bigSpells = new Integer[levelCap][levelCap];
         Boolean[]   abilityImp = {false,false,false,true,false};
         String[]   feature = new String[levelCap];
+        String[]    wProf = new String[profCap];
+        String[]    aProf = new String[profCap];
+        String[]    sProf = new String[profCap];
 
         try {
             setClassChoice("Barbarian");
@@ -505,10 +551,20 @@ public class CharacterClass {
         feature[3]="Ability Score Improvement";
         feature[4]="Extra Attack,Fast Movement";
 
+        wProf[0]="Simple Weapons";
+        wProf[1]="Martial Weapons";
+
+        aProf[0]="Light Armor";
+        aProf[1]="Medium Armor";
+        sProf[2]="Shields";
+
         setFeatures(feature);
-        setWeaponProfList("Simple weapons, martial weapons");
-        setArmorProfList("Light armor, medium armor, shields");
-        setProfSaves( "Strength, Constitution");
+        //setWeaponProfList("Simple weapons, martial weapons");
+        setWeaponProfList(wProf);
+        //setArmorProfList("Light armor, medium armor, shields");
+        setArmorProfList(aProf);
+        //setProfSaves( "Strength, Constitution");
+        setProfSaves(sProf);
         setAbilityImprovement(abilityImp);
         setWizardSpells(bigSpells);
         setDruidSpells(bigSpells);
@@ -531,8 +587,10 @@ public class CharacterClass {
 
     public CharacterClass(){
         // CONSTRUCTOR
+        clear();
         initCreateDescriptions();
     }
+
     private void initAddClassDesc(String name, String desc) {
         // allows for an addition of a character class and description to the description Hashmap
         descriptions.put(name,desc);
