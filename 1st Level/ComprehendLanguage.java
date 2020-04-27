@@ -2,6 +2,8 @@ public class ComprehendLanguage extends Spell {
   
   private int Level = 1;
   
+  private String name= "Comprehend Language";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Comprehend Language\n"+
@@ -29,6 +31,11 @@ public class ComprehendLanguage extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
