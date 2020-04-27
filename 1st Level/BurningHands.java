@@ -2,6 +2,8 @@ public class BurningHands extends Spell {
   
   private int Level = 1;
   
+  private String name = "Burning Hands";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Burning Hands\n"+
@@ -29,6 +31,11 @@ public class BurningHands extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+  
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
