@@ -2,6 +2,8 @@ public class SilentImage extends Spell {
   
   private int Level = 1;
   
+  private String name = "Silent Image";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Silent Image\n"+
@@ -29,6 +31,11 @@ public class SilentImage extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
