@@ -2,6 +2,8 @@ public class FloatingDisk extends Spell {
   
   private int Level = 1;
   
+  private String name = "Floating Disk";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Floating Disk\n"+
@@ -29,6 +31,11 @@ public class FloatingDisk extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
