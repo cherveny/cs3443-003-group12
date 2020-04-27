@@ -2,6 +2,8 @@ public class MageArmor extends Spell {
   
   private int Level = 1;
   
+  private String name = "Mage Armor";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Mage Armor\n"+
@@ -29,6 +31,11 @@ public class MageArmor extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
