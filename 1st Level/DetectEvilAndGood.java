@@ -2,6 +2,8 @@ public class DetectEvilAndGood extends Spell {
   
   private int Level = 1;
   
+  private String name = "Detect Evil and Good";
+  
   private String ClassRequirement[] = {"Cleric"};
   
   private String Description = "Spell: Detect Evil and Good\n"+
@@ -29,6 +31,11 @@ public class DetectEvilAndGood extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
