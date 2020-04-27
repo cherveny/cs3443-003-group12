@@ -2,6 +2,8 @@ public class PoisonSpray extends Spell {
   
   private int Level = 0;
   
+  private String name = "Poison Spray";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Poison Spray\n"+
@@ -27,6 +29,11 @@ public class PoisonSpray extends Spell {
 public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
