@@ -4,6 +4,8 @@ public class FogCloud extends Spell {
   
   private String ClassRequirement[] = {"Wizard"};
   
+  private String name = "Fog Cloud";
+  
   private String Description = "Spell: Fog Cloud\n"+
                        "Casting Time: 1 Action\n"+
                        "Range/Area: 120 ft\n"+
@@ -29,6 +31,11 @@ public class FogCloud extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
