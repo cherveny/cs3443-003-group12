@@ -2,6 +2,8 @@ public class Thaumaturgy extends Spell {
   
   private int Level = 0;
   
+  private String name = "Thaumaturgy";
+  
   private String ClassRequirement[] = {"Cleric"};
   
   private String Description = "Spell: Thaumaturgy\n"+
@@ -26,6 +28,11 @@ public class Thaumaturgy extends Spell {
 public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
