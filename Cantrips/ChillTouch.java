@@ -2,6 +2,7 @@ public class ChillTouch extends Spell {
   
   private int Level = 0;
   
+  private String name = "Chill Touch";
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Chill Touch\n"+
@@ -26,6 +27,11 @@ public class ChillTouch extends Spell {
 public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+  
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
