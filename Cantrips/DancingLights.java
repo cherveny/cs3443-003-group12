@@ -2,6 +2,8 @@ public class DancingLights extends Spell {
   
   private int Level = 0;
   
+  private String name = "Dancing Lights";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Dancing Lights\n"+
@@ -27,6 +29,11 @@ public class DancingLights extends Spell {
 public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
