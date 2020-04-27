@@ -2,6 +2,8 @@ public class ShockingGrasp extends Spell {
   
   private int Level = 0;
   
+  private String name = "Shocking Grasp";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Shocking Grasp\n"+
@@ -27,6 +29,11 @@ public class ShockingGrasp extends Spell {
 public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
