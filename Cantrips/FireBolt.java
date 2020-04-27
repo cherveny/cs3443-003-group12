@@ -2,6 +2,8 @@ public class FireBolt extends Spell {
   
   private int Level = 0;
   
+  private String name = "Fire Bolt";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Fire Bolt\n"+
@@ -26,6 +28,11 @@ public class FireBolt extends Spell {
 public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
