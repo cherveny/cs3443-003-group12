@@ -2,6 +2,8 @@ public class MagicMissile extends Spell {
   
   private int Level = 1;
   
+  private String name = "Magic Missile";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Magic Missile\n"+
@@ -29,6 +31,11 @@ public class MagicMissile extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
