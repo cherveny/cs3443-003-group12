@@ -2,6 +2,8 @@ public class ShieldOfFaith extends Spell {
   
   private int Level = 1;
   
+  private String name = "Shield Of Faith";
+  
   private String ClassRequirement[] = {"Cleric"};
   
   private String Description = "Spell: Shield of Faith\n"+
@@ -29,6 +31,11 @@ public class ShieldOfFaith extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
