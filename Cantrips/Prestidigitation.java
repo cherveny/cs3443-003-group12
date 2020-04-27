@@ -2,6 +2,8 @@ public class Prestidigitation extends Spell {
   
   private int Level = 0;
   
+  private String name = "Prestidigitation";
+  
   private String ClassRequirement[] = {"Wizard"};
   
   private String Description = "Spell: Prestidigitation\n"+
@@ -27,6 +29,11 @@ public class Prestidigitation extends Spell {
 public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
