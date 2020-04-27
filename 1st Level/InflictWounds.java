@@ -2,7 +2,7 @@ public class InflictWounds extends Spell {
   
   private int Level = 1;
   
-  Private String name = "Inflict Wounds";
+  private String name = "Inflict Wounds";
   
   private String ClassRequirement[] = {"Cleric"};
   
