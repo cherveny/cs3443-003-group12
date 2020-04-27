@@ -2,6 +2,8 @@ public class DetectPoisonAndDisease extends Spell {
   
   private int Level = 1;
   
+  private String name = "Detect Poison and Disease";
+  
   private String ClassRequirement[] = {"Cleric"};
   
   private String Description = "Spell: Detect Poison and Disease\n"+
@@ -29,6 +31,11 @@ public class DetectPoisonAndDisease extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
