@@ -2,6 +2,8 @@ public class DetectMagic extends Spell {
   
   private int Level = 1;
   
+  private String name = "Detect Magic";
+  
   private String ClassRequirement[] = {"Cleric","Wizard"};
   
   private String Description = "Spell: Detect Magic\n"+
@@ -29,6 +31,11 @@ public class DetectMagic extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
