@@ -2,6 +2,8 @@ public class PurifyFoodAndDrink extends Spell {
   
   private int Level = 1;
   
+  private String name = "Purify Food and Drink";
+  
   private String ClassRequirement[] = {"Cleric"};
   
   private String Description = "Spell: Purify Food and Drink\n"+
@@ -29,6 +31,11 @@ public class PurifyFoodAndDrink extends Spell {
   public String[] getClassRequirement()
   {
     return this.ClassRequirement;
+  }
+    
+  public String getName()
+  {
+    return name;
   }
   
   public String getDescription()
