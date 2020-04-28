@@ -1,11 +1,23 @@
 package application;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class WizardSpellsPageController {
-
+	@FXML
+	private SplitPane mainPane2;
+	
+	int numSelections = 0;
+	
     @FXML
     private TextArea AcidSplashText;
 
@@ -19,7 +31,7 @@ public class WizardSpellsPageController {
     private TextArea CreateBonfireText;
 
     @FXML
-    private TextArea DancingLightsTet;
+    private TextArea DancingLightsText;
 
     @FXML
     private TextArea FireboltText;
@@ -70,109 +82,172 @@ public class WizardSpellsPageController {
     private TextArea TrueStrikeText;
 
     @FXML
-    void AcidSplashConfirm(ActionEvent event) {
-
+    void AcidSplashConfirm(ActionEvent event)  throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void ChillTouchConfirm(ActionEvent event) {
-
+    void ChillTouchConfirm(ActionEvent event)  throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void ControlFlamesConfirm(ActionEvent event) {
-
+    void ControlFlamesConfirm(ActionEvent event)  throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void CreateBonfireConfirm(ActionEvent event) {
-
+    void CreateBonfireConfirm(ActionEvent event) throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void DancingLightsConfirm(ActionEvent event) {
-
+    void DancingLightsConfirm(ActionEvent event) throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void FireboltConfirm(ActionEvent event) {
-
+    void FireboltConfirm(ActionEvent event)  throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void FrostbiteConfirm(ActionEvent event) {
-
+    void FrostbiteConfirm(ActionEvent event) throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void GustConfirm(ActionEvent event) {
-
+    void GustConfirm(ActionEvent event)  throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void LightConfirm(ActionEvent event) {
-
+    void LightConfirm(ActionEvent event)  throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void MagicHandsConfirm(ActionEvent event) {
-
+    void MagicHandsConfirm(ActionEvent event)  throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void MendingConfirm(ActionEvent event) {
-
+    void MendingConfirm(ActionEvent event)  throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void MessageConfirm(ActionEvent event) {
-
+    void MessageConfirm(ActionEvent event) throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void MinorIllusionConfirm(ActionEvent event) {
-
+    void MinorIllusionConfirm(ActionEvent event)  throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void MoldEarthConfirm(ActionEvent event) {
-
+    void MoldEarthConfirm(ActionEvent event)  throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void PoisonSprayConfirm(ActionEvent event) {
-
+    void PoisonSprayConfirm(ActionEvent event) throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
     
     @FXML
-    void ThunderClapConfirm(ActionEvent event) {
-
+    void ThunderClapConfirm(ActionEvent event)  throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
-    void TrueStrikeConfirm(ActionEvent event) {
-
-    }
-    
-    @FXML
-    void ShapeWaterConfirm(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ShockingGraspConfirm(ActionEvent event) {
-
+    void TrueStrikeConfirm(ActionEvent event) throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
     
     @FXML
-    void ProstidigationConfirm(ActionEvent event) {
+    void ShapeWaterConfirm(ActionEvent event) throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
+    }
 
+    @FXML
+    void ShockingGraspConfirm(ActionEvent event)  throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
+    }
+    
+    @FXML
+    void ProstidigationConfirm(ActionEvent event)  throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
 
     @FXML
-    void RayFrostConfirm(ActionEvent event) {
-
+    void RayFrostConfirm(ActionEvent event) throws IOException {
+    	numSelections++;
+    	if(numSelections>=3) {
+    		switchPage(event, "WizardMoreSpellsPage.fxml");
+    	}
     }
 
     @FXML
@@ -199,5 +274,15 @@ public class WizardSpellsPageController {
     void ClassMenu(ActionEvent event) {
 
     }
+    
+    void switchPage(ActionEvent event, String nextPageFXML) throws IOException {
+   	   mainPane2 = FXMLLoader.load(getClass().getResource(nextPageFXML));// pane you are GOING TO
+          Scene scene = new Scene(mainPane2,800,600);// pane you are GOING TO show
+          Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+   		window.setTitle("D&D 5E Character Builder - Spells");
+   		window.setScene(scene);
+   		window.setResizable(false);
+   		window.show();
+      }
 
 }
