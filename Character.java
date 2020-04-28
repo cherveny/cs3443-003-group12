@@ -41,7 +41,7 @@ public class Character {
 	CharacterClass cClass;
 	Race race;
 	int raceChoice;
-	
+	String raceName="";
 
 	
 
@@ -58,7 +58,7 @@ public class Character {
 	
 	//////////   G E N E R A L    S T A T S     &    I N F O  ////////////
 	private int passiveWisdom;
-	private int inspiration;
+	private int inspiration=0;
 	private int proficiencyBonus;
 	private String chosenClass ="";
 	private String playerName = "";
@@ -115,7 +115,7 @@ public class Character {
 		this.wisdom = 10;
 		this.charisma = 8;
 		try {
-		File f = new File("Skill Initializer");
+		File f = new File("C:\\Users\\Mazen\\eclipse-workspace\\ApplicationDevelopmentProject\\src\\Skill Initializer.txt");
 		FileReader fr = new FileReader(f);
 		BufferedReader br = new BufferedReader(fr);
 		String rline;
@@ -431,6 +431,9 @@ public class Character {
 	public void setInitiative( ) {
 		initiative = dexterityMod;
 	}
+	public void setInitiative( int num) {
+		initiative = num;
+	}
 	
 	public int getDSsuccess() {
 		return dsSuccess;
@@ -587,7 +590,6 @@ public class Character {
 	}
 	////////////////////       Methods other than setters and getters      //////////////////////////////////
 	public void chooseClass() {
-		cClass = new CharacterClass(chosenClass);
 		try {
 			cClass.chooseCharacterClass(chosenClass);
 		} catch (invalidCharacterClass e) {
@@ -602,36 +604,82 @@ public class Character {
 			}
 		}
 	}
+	public void setRaceChoice(String name) {
+		switch (name) {
+		
+			case "Dragonborn":
+				chooseRace(1);
+				break;
+			case "Dwarf":
+				chooseRace(2);
+				break;
+			case "Elf":
+				chooseRace(3);
+				break;
+			case "Gnome":
+				chooseRace(4);
+				break;
+			case "HalfElf":
+				chooseRace(5);
+				break;
+			case "Halfling":
+				chooseRace(6);
+				break;
+			case "HalfOrc":
+				chooseRace(7);
+				break;
+			case "Human":
+				chooseRace(8);
+				break;
+			case "Tiefling":
+				chooseRace(9);
+				break;
+			default :
+				System.out.println("Unknown Class");
+				break;
+				
+			
+		}
+	}
 	public void chooseRace(int choice) {
 		raceChoice = choice;
 	switch (choice) {
 		
 		case 1:
 			race = new Dragonborn();
+			raceName = "DragonBorn";
 			break;
 		case 2:
 			race = new Dwarf();
+			raceName = "Dwarf";
 			break;
 		case 3:
 			race = new Elf();
+			raceName = "Elf";
 			break;
 		case 4:
 			race = new Gnome();
+			raceName = "Gnome";
 			break;
 		case 5:
 			race = new HalfElf();
+			raceName = "Half Elf";
 			break;
 		case 6:
 			race = new Halfling();
+			raceName = "Halfling";
 			break;
 		case 7:
 			race = new HalfOrc();
+			raceName = "Half Orc";
 			break;
 		case 8:
 			race = new Human();
+			raceName = "Human";
 			break;
 		case 9:
 			race = new Tiefling();
+			raceName = "Tiefling";
 			break;
 		default :
 			System.out.println("Unknown Class");
@@ -654,7 +702,24 @@ public class Character {
 		
 		
 	}
-	 
+	 public int getStrengthMod() {
+		 return strengthMod;
+	 }
+	 public int getDexterityMod() {
+		 return dexterityMod;
+	 }
+	 public int getConstitutionMod() {
+		 return constitutionMod;
+	 }
+	 public int getIntelligenceMod() {
+		 return intelligenceMod;
+	 }
+	 public int getWisdomMod() {
+		 return wisdomMod;
+	 }
+	 public int getCharismaMod() {
+		 return charismaMod;
+	 }
 	 void abilityModifiers() {
 		 int minus;
 		 
@@ -676,27 +741,54 @@ public class Character {
 		 minus = charisma - 10;
 		 charismaMod = (int) Math.floor(((double )minus/2));
 	 }
-	 
+	 public void setSavingThrows() {
+		 strengthSave = strengthMod;
+		 dexteritySave = dexterityMod; 
+		 constitutionSave = constitutionMod;
+		 intelligenceSave = intelligenceMod;
+		 wisdomSave = wisdomMod;
+		 charismaSave = charismaMod;
+		 setSavingThrows(chosenClass);
+	 }
 	 public void setSavingThrows ( String s) {
 		
-		 if (s.contains("Strength")) {
+		 if (s.contains("Barbarian") || s.contains("Fighter")) {
 			 strengthSave = strengthMod + proficiencyBonus;
 		 }
-		 if (s.contains("Dexterity")) {
+		 if (s.contains("Rogue")) {
 			 dexteritySave = dexterityMod + proficiencyBonus;
 		 }
-		 if (s.contains("Constitution")) {
+		 if (s.contains("Barbarian") || s.contains("Fighter")) {
 			 constitutionSave = constitutionMod + proficiencyBonus;
 		 }
-		 if (s.contains("Intelligence")) {
+		 if (s.contains("Rogue") || s.contains("Wizard")) {
 			 intelligenceSave = intelligenceMod + proficiencyBonus;
 		 }
-		 if (s.contains("Sisdom")) {
+		 if (s.contains("Cleric") || s.contains("Wizard")) {
 			 wisdomSave = wisdomMod + proficiencyBonus;
 		 }
-		 if (s.contains("Charisma")) {
+		 if (s.contains("Cleric")) {
 			 charismaSave = charismaMod + proficiencyBonus;
 		 }
+	 }
+	 
+	 public int getStrengthSave() {
+		 return strengthSave;
+	 }
+	 public int getDexteritySave() {
+		 return dexteritySave;
+	 }
+	 public int getConstitutionSave() {
+		 return constitutionSave;
+	 }
+	 public int getIntelligenceSave() {
+		 return intelligenceSave;
+	 }
+	 public int getWisdomSave() {
+		 return wisdomSave;
+	 }
+	 public int getCharismaSave() {
+		 return charismaSave;
 	 }
 	public void createHP() {
 		HP = cClass.getStartHP() + constitutionMod;
@@ -722,126 +814,135 @@ public class Character {
 		SpellList.add(SpellManager.findSpell(name, lvl));
 	}
 	
+	public String getRaceName() {
+		return raceName;
+	}
+	public void setRaceName(String name) {
+		raceName = name;
+	}
 	public void setSkills() {
+		acrobatics = dexterityMod;
+		animalHandling = wisdomMod;
+		arcana = intelligenceMod;
+		athletics = strengthMod;
+		deception = charismaMod;
+		history = intelligenceMod;
+		insight = wisdomMod;
+		intimidation = charismaMod;
+		investigation = intelligenceMod;
+		medicine = wisdomMod;
+		nature = intelligenceMod;
+		perception = wisdomMod;
+		performance = charismaMod;
+		persuasion = charismaMod;
+		religion= intelligenceMod;
+		sleightOfHands = dexterityMod;
+		stealth = dexterityMod;
+		survival = wisdomMod;
+	}
+	public void setSkills(String s) {
 		
 		for (int i = 0 ; i < chosenSkills.size(); i++) {
-			if (chosenSkills.get(i).getSkillName().contains("Acrobatic")) {
-				acrobatics = dexterityMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Acrobatic") && s.contains("Acrobatic")) {
+				
 					acrobatics = acrobatics + proficiencyBonus;
-				}
+				
 			}
 			
-			if (chosenSkills.get(i).getSkillName().contains("Animal")) {
-				animalHandling = wisdomMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Animal") && s.contains("Animal")  ) {
+			
 					animalHandling = animalHandling + proficiencyBonus;
-				}
+				
 			}
-			if (chosenSkills.get(i).getSkillName().contains("Arcan")) {
-				arcana = intelligenceMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Arcan") && s.contains("Arcan")) {
+			
 					arcana = arcana + proficiencyBonus;
-				}
+				
 			}
-			if (chosenSkills.get(i).getSkillName().contains("Athle")) {
-				athletics = strengthMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Athle") && s.contains("Athle")) {
+			
 					athletics = athletics + proficiencyBonus;
-				}
+				
 			}
 			
-			if (chosenSkills.get(i).getSkillName().contains("Deception")) {
-				deception = charismaMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Deception") && s.contains("Deception")) {
+				
 					deception = deception + proficiencyBonus;
-				}
+				
 			}
-			if (chosenSkills.get(i).getSkillName().contains("History")) {
-				history = intelligenceMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("History") && s.contains("History")) {
+				
 					history = history + proficiencyBonus;
-				}
+				
 			}
-			if (chosenSkills.get(i).getSkillName().contains("Insight")) {
-				insight = wisdomMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Insight") && s.contains("Insight")) {
+			
 					insight = insight + proficiencyBonus;
-				}
+				
 			}
 			
-			if (chosenSkills.get(i).getSkillName().contains("Intimidation")) {
-				intimidation = charismaMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Intimidation") && s.contains("Intimidation") ) {
+				
 					intimidation = intimidation + proficiencyBonus;
-				}
+				
 			}
-			if (chosenSkills.get(i).getSkillName().contains("Investigation")) {
-				investigation = intelligenceMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Investigation") && s.contains("Investigation")) {
+			
 					investigation = investigation + proficiencyBonus;
 				}
-			}
-			if (chosenSkills.get(i).getSkillName().contains("Medi")) {
-				medicine = wisdomMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Medi") && s.contains("Medi")) {
+				
 					medicine = medicine + proficiencyBonus;
-				}
+				
 			}
 			
-			if (chosenSkills.get(i).getSkillName().contains("Nature")) {
-				nature = intelligenceMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Nature") && s.contains("Nature") ) {
+				
 					nature = nature + proficiencyBonus;
-				}
+				
 			}
-			if (chosenSkills.get(i).getSkillName().contains("Percep")) {
-				perception = wisdomMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Percep") && s.contains("Percep")) {
+			
 					perception = perception + proficiencyBonus;
-				}
+				
 			}
-			if (chosenSkills.get(i).getSkillName().contains("Perform")) {
-				performance = charismaMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Perform") && s.contains("Perform") ) {
+				
 					performance = performance + proficiencyBonus;
-				}
+				
 			}
 			
-			if (chosenSkills.get(i).getSkillName().contains("Persuas")) {
-				persuasion = charismaMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Persuas") && s.contains("Persuas")) {
+			
 					persuasion = persuasion + proficiencyBonus;
-				}
+				
 			}
-			if (chosenSkills.get(i).getSkillName().contains("Religion")) {
-				religion= intelligenceMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Religion") && s.contains("Religion") ) {
+			
 					religion = religion + proficiencyBonus;
-				}
+				
 			}
-			if (chosenSkills.get(i).getSkillName().contains("Sleight")) {
-				sleightOfHands = dexterityMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Sleight") && s.contains("Sleight") ) {
+				
 					sleightOfHands = sleightOfHands + proficiencyBonus;
-				}
+				
 			}
 			
-			if (chosenSkills.get(i).getSkillName().contains("Stealth")) {
-				stealth = dexterityMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Stealth") && s.contains("Stealth")) {
+				
 					stealth = stealth + proficiencyBonus;
-				}
+				
 			}
-			if (chosenSkills.get(i).getSkillName().contains("Surviv")) {
-				survival = wisdomMod;
-				if (chosenSkills.get(i).hasChoice()) {
+			if (chosenSkills.get(i).getSkillName().contains("Surviv") && s.contains("Surviv")) {
 					survival = survival + proficiencyBonus;
-				}
+				
 			}
 		}
 	}
 	
 	
+	
 }
+
+
 
