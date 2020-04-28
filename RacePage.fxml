@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<SplitPane dividerPositions="0.0485" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RacePageController">
+   <items>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="800.0">
+         <children>
+            <MenuBar layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="800.0">
+               <menus>
+                  <Menu mnemonicParsing="false" onAction="#RaceMenu" text="Race" />
+                  <Menu mnemonicParsing="false" onAction="#ClassMenu" text="Class" />
+                  <Menu mnemonicParsing="false" onAction="#ProficiencyMenu" text="Proficiency" />
+                  <Menu mnemonicParsing="false" onAction="#SpellsMenu" text="Spells" />
+                  <Menu mnemonicParsing="false" onAction="#ReviewMenu" text="Review" />
+               </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+      <TabPane prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Dragonborn">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#DragonbornConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Race Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="DragonBornText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Dwarf">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#DwarfConfim" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Race Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="DwarfText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Elf">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#ElfConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Race Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="ElfText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Gnome">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#GnomeConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Race Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="GnomeText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Half Elf">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#HalfElfConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Race Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="HalfElfText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Half Orc">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#HalfOrcConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Race Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="HalfOrcText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Halfling">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#HalflingConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Race Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="HalflingText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Human">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#HumanConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Race Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="HumanText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Tiefling">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#TieflingConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Race Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="TieflingText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </items>
+</SplitPane>
