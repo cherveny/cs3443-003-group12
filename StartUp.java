@@ -16,24 +16,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class StartUp {
-	int totalCharacters;
+	static int totalCharacters;
 	
-	ArrayList<Character> characterList= new ArrayList<Character>();
-	File f = new File("SavedCharacters.txt");
+	static ArrayList<Character> characterList= new ArrayList<Character>();
+	static File f = new File("C:\\Users\\Mazen\\eclipse-workspace\\ApplicationDevelopmentProject\\src\\SavedCharacters.txt");
 	
 	
 	
-	public void saveCaharacters() {
+	public static void saveCaharacters() {
 		BufferedWriter outputWriter = null;
 		  try {
-			outputWriter = new BufferedWriter(new FileWriter("SavedCharacters.txt"));
+			outputWriter = new BufferedWriter(new FileWriter(f));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		  try {
 			  totalCharacters = characterList.size();
-			outputWriter.write( totalCharacters);
+			outputWriter.write( String.valueOf(totalCharacters));
 			outputWriter.newLine();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
@@ -43,71 +43,71 @@ public class StartUp {
 		    
 		    
 		    try {
-				outputWriter.write( characterList.get(i).getStrength());
+				outputWriter.write( String.valueOf(characterList.get(i).getStrength()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getDexterity());
+				outputWriter.write( String.valueOf(characterList.get(i).getDexterity()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getConstituition());
+				outputWriter.write( String.valueOf(characterList.get(i).getConstituition()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getIntelligence());
+				outputWriter.write(String.valueOf( characterList.get(i).getIntelligence()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getWisdom());
+				outputWriter.write( String.valueOf(characterList.get(i).getWisdom()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getCharisma());
+				outputWriter.write( String.valueOf(characterList.get(i).getCharisma()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getAcrobatics());
+				outputWriter.write( String.valueOf(characterList.get(i).getAcrobatics()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getAnimalHandling());
+				outputWriter.write( String.valueOf(characterList.get(i).getAnimalHandling()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getArcana());
+				outputWriter.write( String.valueOf(characterList.get(i).getArcana()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getAthletics());
+				outputWriter.write( String.valueOf(characterList.get(i).getAthletics()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getDeception());
+				outputWriter.write( String.valueOf(characterList.get(i).getDeception()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getHistory());
+				outputWriter.write( String.valueOf(characterList.get(i).getHistory()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getInsight());
+				outputWriter.write( String.valueOf(characterList.get(i).getInsight()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getIntimidation());
+				outputWriter.write( String.valueOf(characterList.get(i).getIntimidation()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getInvestigation());
+				outputWriter.write( String.valueOf(characterList.get(i).getInvestigation()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getMedicine());
+				outputWriter.write( String.valueOf(characterList.get(i).getMedicine()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getNature());
+				outputWriter.write( String.valueOf(characterList.get(i).getNature()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getPerception());
+				outputWriter.write( String.valueOf(characterList.get(i).getPerception()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getPerformance());
+				outputWriter.write(String.valueOf( characterList.get(i).getPerformance()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getPersuasion());
+				outputWriter.write(String.valueOf( characterList.get(i).getPersuasion()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getReligion());
+				outputWriter.write( String.valueOf(characterList.get(i).getReligion()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getSleightOfHands());
+				outputWriter.write( String.valueOf(characterList.get(i).getSleightOfHands()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getStealth());
+				outputWriter.write( String.valueOf(characterList.get(i).getStealth()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getSurvival());
+				outputWriter.write( String.valueOf(characterList.get(i).getSurvival()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getHP());
+				outputWriter.write( String.valueOf(characterList.get(i).getHP()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getCurHP());
+				outputWriter.write( String.valueOf(characterList.get(i).getCurHP()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getTempHP());
+				outputWriter.write( String.valueOf(characterList.get(i).getTempHP()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getSpeed());
+				outputWriter.write( String.valueOf(characterList.get(i).getSpeed()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getAC());
+				outputWriter.write( String.valueOf(characterList.get(i).getAC()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getInitiative());
+				outputWriter.write( String.valueOf(characterList.get(i).getInitiative()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getPassWisdom());
+				outputWriter.write( String.valueOf(characterList.get(i).getPassWisdom()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getInspiration());
+				outputWriter.write( String.valueOf(characterList.get(i).getInspiration()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getProfBonus());
+				outputWriter.write( String.valueOf(characterList.get(i).getProfBonus()));
 				outputWriter.newLine();
 				outputWriter.write( characterList.get(i).getPlayerName());
 				outputWriter.newLine();
@@ -115,20 +115,20 @@ public class StartUp {
 				outputWriter.newLine();
 				outputWriter.write( characterList.get(i).getCharName());
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getLevel());
+				outputWriter.write( String.valueOf(characterList.get(i).getLevel()));
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getRaceChoice());
+				outputWriter.write( String.valueOf(characterList.get(i).getRaceChoice()));
 				outputWriter.newLine();
 				outputWriter.write( characterList.get(i).getChosenClass());
 				outputWriter.newLine();
 				outputWriter.write( characterList.get(i).getArmor());
 				outputWriter.newLine();
-				outputWriter.write( characterList.get(i).getSpellList().size());
+				outputWriter.write( String.valueOf(characterList.get(i).getSpellList().size()));
 				outputWriter.newLine();
 				for (int j = 0 ; j < characterList.get(i).getSpellList().size(); j++) {
 					outputWriter.write( characterList.get(i).getSpellList().get(j).getName());
 					outputWriter.newLine();
-					outputWriter.write( characterList.get(i).getSpellList().get(j).getLevel());
+					outputWriter.write(String.valueOf( characterList.get(i).getSpellList().get(j).getLevel()));
 					outputWriter.newLine();
 				}
 				
@@ -148,12 +148,12 @@ public class StartUp {
 		}  
 	}
 	
-	public void readCharacters() throws IOException {
+	public static void readCharacters() throws IOException {
 		FileReader fr = new FileReader(f);
 		BufferedReader br = new BufferedReader(fr);
 		
 		totalCharacters = Integer.parseInt(br.readLine());
-		
+		CharacterClass cc = new CharacterClass();
 		for (int i = 0; i< totalCharacters; i++) {
 			Character temp = new Character();
 			temp.setStrength(Integer.parseInt(br.readLine()));
@@ -186,6 +186,7 @@ public class StartUp {
 			temp.setSpeed(Integer.parseInt(br.readLine()));
 			temp.setAC(Integer.parseInt(br.readLine()));
 			temp.setPassiveWisdom(Integer.parseInt(br.readLine()));
+			temp.setInitiative(Integer.parseInt(br.readLine()));
 			temp.setInspiration(Integer.parseInt(br.readLine()));
 			temp.setProfBonus(Integer.parseInt(br.readLine()));
 			temp.setPlayerName(br.readLine());
@@ -201,14 +202,21 @@ public class StartUp {
 				int lvl = Integer.parseInt(br.readLine());
 				temp.addSpell(name , lvl); 
 			}
+			
+			
 			temp.chooseRace(temp.raceChoice);
 			temp.abilityModifiers();
-			
+			temp.setSavingThrows();
 			characterList.add(temp);
 		}
 		br.close();
 		fr.close();
 	}
 
-
+	public static void addCharacter(Character c) {
+		characterList.add(c);
+	}
+	public static ArrayList<Character> getCharacterList(){
+		return characterList;
+	}
 }
