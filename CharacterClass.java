@@ -324,6 +324,8 @@ public class CharacterClass {
             case "Rogue":
                 rogueClass();
                 break;
+            case "Fighter":
+                fighterClass();
             default:
                 throw new invalidCharacterClass("Character class " + name + " undefined");
         }
@@ -595,6 +597,9 @@ public class CharacterClass {
 
         aProf[0] = "Light Armor";
 
+        sProf[0]="Dexterity";
+        sProf[1]="Intelligence";
+
         setFeatures(feature);
         //setWeaponProfList("Simple weapons, martial weapons");
         setWeaponProfList(wProf);
@@ -661,7 +666,10 @@ public class CharacterClass {
 
         aProf[0]="Light Armor";
         aProf[1]="Medium Armor";
-        sProf[2]="Shields";
+        aProf[2]="Shields";
+
+        sProf[0] = "Strength";
+        sProf[1] = "Constitution";
 
         setFeatures(feature);
         //setWeaponProfList("Simple weapons, martial weapons");
@@ -683,7 +691,81 @@ public class CharacterClass {
         //System.out.println(weaponProficiencies[4]);
         //System.out.println(wizardSpells[4][2]);
         //System.out.println(features[2]);
-    }
+    }  // end barbarian class
+
+    public static void fighterClass() {
+        // set all values to match barbarian being selected
+        Integer[] profs = new Integer[levelCap];
+        Integer[] rages = new Integer[levelCap];
+        Integer[] rageDamage = new Integer[levelCap];
+        Integer[]   spells = {0,0,0,0,0};
+        Integer[][] bigSpells = new Integer[levelCap][levelCap];
+        Boolean[]   abilityImp = {false,false,false,true,false};
+        String[]   feature = new String[levelCap];
+        String[]    wProf = new String[profCap];
+        String[]    aProf = new String[profCap];
+        String[]    sProf = new String[profCap];
+        String[]    sneak = new String[levelCap];
+
+        try {
+            setClassChoice("Fighter");
+        } catch (Exception e) {
+            System.out.println("Invalid Character choice");
+        }
+
+        for (int i = 0;i<levelCap;i++) {
+            // set load weapon prof bonus, rage damage and rages
+            sneak[i] = "";
+            rages[i] = 0;
+            rageDamage[i] = 0;
+            if(i<4)
+                profs[i] = 2;
+            else
+                profs[i] = 3;
+        }
+
+        for(int i=0;i<levelCap;i++) {
+            // set all spell slots to -1 for no spells
+            bigSpells[i] = spells;
+        }
+
+        feature[0]="Fighting Style, Second Wind";
+        feature[1]="Action Surge";
+        feature[2]="Martial Archetype";
+        feature[3]="Ability Score Improvement";
+        feature[4]="Extra Attack";
+
+        wProf[0]="Simple Weapons";
+        wProf[1]="Martial Weapons";
+
+        aProf[0]="All Armor";
+        aProf[1]="Shields";
+
+        sProf[0]="Strength";
+        sProf[1]="Constitution";
+
+        setFeatures(feature);
+        //setWeaponProfList("Simple weapons, martial weapons");
+        setWeaponProfList(wProf);
+        //setArmorProfList("Light armor, medium armor, shields");
+        setArmorProfList(aProf);
+        //setProfSaves( "Strength, Constitution");
+        setProfSaves(sProf);
+        setAbilityImprovement(abilityImp);
+        setWizardSpells(bigSpells);
+        setDruidSpells(bigSpells);
+        setClericSpells(bigSpells);
+        setRageDamage(rageDamage);
+        setRages(rages);
+        setWeaponProficiencies(profs);
+        setHitDice(10);
+        setStartHP(10);
+        setSneakAttack(sneak);
+        //System.out.println(weaponProficiencies[4]);
+        //System.out.println(wizardSpells[4][2]);
+        //System.out.println(features[2]);
+    } // end fighter class
+
 
     ////////////////////////////////
     // setters for initialization //
@@ -909,6 +991,61 @@ public class CharacterClass {
                 " and you had to find a new means of support. Or maybe you made a new friend—another member of your" +
                 " adventuring party—who showed you new possibilities for earning a living and employing your " +
                 "particular talents.");
+
+        initAddClassDesc("Fighter", "A human in clanging plate armor holds her shield before her as she" +
+                " runs toward the massed goblins. An elf behind her, clad in studded leather armor, peppers the goblins" +
+                " with arrows loosed from his exquisite bow. The half-orc nearby shouts orders, helping the two " +
+                "combatants coordinate their assault to the best advantage.\n" +
+                "\n" +
+                "A dwarf in chain mail interposes his shield between the ogre’s club and his companion, knocking the " +
+                "deadly blow aside. His companion, a half-elf in scale armor, swings two scimitars in a blinding whirl" +
+                " as she circles the ogre, looking for a blind spot in its defenses.\n" +
+                "\n" +
+                "A gladiator fights for sport in an arena, a master with his trident and net, skilled at toppling foes" +
+                " and moving them around for the crowd’s delight—and his own tactical advantage. His opponent’s sword " +
+                "flares with blue light an instant before she sends lightning flashing forth to smite him.\n" +
+                "\n" +
+                "All of these heroes are fighters, perhaps the most diverse class of characters in the worlds of " +
+                "Dungeons & Dragons. Questing knights, conquering overlords, royal champions, elite foot soldiers," +
+                " hardened mercenaries, and bandit kings—as fighters, they all share an unparalleled mastery with " +
+                "weapons and armor, and a thorough knowledge of the skills of combat. And they are well acquainted" +
+                " with death, both meting it out and staring it defiantly in the face.\n" +
+                "\n" +
+                "Well-Rounded Specialists\n" +
+                "Fighters learn the basics of all combat styles. Every fighter can swing an axe, fence with a rapier," +
+                " wield a longsword or a greatsword, use a bow, and even trap foes in a net with some degree of skill." +
+                " Likewise, a fighter is adept with shields and every form of armor. Beyond that basic degree of" +
+                " familiarity, each fighter specializes in a certain style of combat. Some concentrate on archery," +
+                " some on fighting with two weapons at once, and some on augmenting their martial skills with magic." +
+                " This combination of broad general ability and extensive specialization makes fighters superior" +
+                " combatants on battlefields and in dungeons alike.\n" +
+                "\n" +
+                "Trained for Danger\n" +
+                "Not every member of the city watch, the village militia, or the queen’s army is a fighter. Most of" +
+                " these troops are relatively untrained soldiers with only the most basic combat knowledge. Veteran" +
+                " soldiers, military officers, trained bodyguards, dedicated knights, and similar figures are " +
+                "fighters.\n" +
+                "\n" +
+                "Some fighters feel drawn to use their training as adventurers. The dungeon delving, monster slaying, " +
+                "and other dangerous work common among adventurers is second nature for a fighter, not all that" +
+                " different from the life he or she left behind. There are greater risks, perhaps, but also much" +
+                " greater rewards—few fighters in the city watch have the opportunity to discover a magic flame tongue" +
+                " sword, for example.\n" +
+                "\n" +
+                "Creating a Fighter\n" +
+                "As you build your fighter, think about two related elements of your character’s background: Where " +
+                "did you get your combat training, and what set you apart from the mundane warriors around you? Were " +
+                "you particularly ruthless? Did you get extra help from a mentor, perhaps because of your exceptional" +
+                " dedication? What drove you to this training in the first place? A threat to your homeland, a thirst" +
+                " for revenge, or a need to prove yourself might all have been factors.\n" +
+                "\n" +
+                "You might have enjoyed formal training in a noble’s army or in a local militia. Perhaps you trained " +
+                "in a war academy, learning strategy, tactics, and military history. Or you might be " +
+                "self-taught—unpolished but well tested. Did you take up the sword as a way to escape the limits of" +
+                " life on a farm, or are you following a proud family tradition? Where did you acquire your weapons " +
+                "and armor? They might have been military issue or family heirlooms, or perhaps you scrimped and saved " +
+                "for years to buy them. Your armaments are now among your most important possessions—the only things" +
+                " that stand between you and death’s embrace.");
     } // end initCreateDescriptions
 
 }
