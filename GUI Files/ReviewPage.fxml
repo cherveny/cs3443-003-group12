@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReviewPageController">
    <children>
-      <Text layoutX="261.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REVIEW TODO" />
+      <TextArea fx:id="ReviewText" editable="false" layoutX="18.0" layoutY="61.0" prefHeight="522.0" prefWidth="763.0" />
+      <Text layoutX="18.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Final Character Review">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="51.0" fitWidth="50.0" layoutX="338.0" layoutY="9.0">
+         <image>
+            <Image url="@../../DnD%20Logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
