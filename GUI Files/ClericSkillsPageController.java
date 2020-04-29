@@ -7,53 +7,54 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class ClericSkillsPageController {
 	
 	@FXML
-	private AnchorPane mainPane2;
+	private SplitPane mainPane2;
 	
 	int numSelections = 0;  
 
     @FXML
     void HistorySelection(ActionEvent event)throws IOException {
     	numSelections++;
-    	if(numSelections==2) {
-    		switchPage(event, "ReviewPage.fxml");
+    	if(numSelections>=2) {
+    		switchPage(event, "ClericSpellsPage.fxml");
     	}
     }
 
     @FXML
     void InsightSelection(ActionEvent event)throws IOException {
     	numSelections++;
-    	if(numSelections==2) {
-    		switchPage(event, "ReviewPage.fxml");
+    	if(numSelections>=2) {
+    		switchPage(event, "ClericSpellsPage.fxml");
     	}
     }
 
     @FXML
     void MedicineSelection(ActionEvent event) throws IOException {
     	numSelections++;
-    	if(numSelections==2) {
-    		switchPage(event, "ReviewPage.fxml");
+    	if(numSelections>=2) {
+    		switchPage(event, "ClericSpellsPage.fxml");
     	}
     }
 
     @FXML
     void PersuasionSelection(ActionEvent event) throws IOException {
     	numSelections++;
-    	if(numSelections==2) {
-    		switchPage(event, "ReviewPage.fxml");
+    	if(numSelections>=2) {
+    		switchPage(event, "ClericSpellsPage.fxml");
     	}
     }
     
     @FXML
     void ReligionSelection(ActionEvent event)throws IOException {
     	numSelections++;
-    	if(numSelections==2) {
-    		switchPage(event, "ReviewPage.fxml");
+    	if(numSelections>=2) {
+    		switchPage(event, "ClericSpellsPage.fxml");
     	}
     }
 
