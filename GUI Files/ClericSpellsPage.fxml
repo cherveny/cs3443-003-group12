@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<SplitPane dividerPositions="0.0485" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ClericSpellsPageController">
+   <items>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="800.0">
+         <children>
+            <MenuBar layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="800.0">
+               <menus>
+                  <Menu mnemonicParsing="false" onAction="#RaceMenu" text="Race" />
+                  <Menu mnemonicParsing="false" onAction="#ClassMenu" text="Class" />
+                  <Menu mnemonicParsing="false" onAction="#ProficiencyMenu" text="Proficiency" />
+                  <Menu mnemonicParsing="false" onAction="#SpellsMenu" text="Spells" />
+                  <Menu mnemonicParsing="false" onAction="#ReviewMenu" text="Review" />
+               </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+      <TabPane prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+     	 <tabs>
+     	 	<Tab text="Rules">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="127.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cantrip Spells">
+                           <font>
+                              <Font size="67.0" />
+                           </font>
+                         </Text>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     <Text layoutX="127.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick Three Spells">
+                        <font>
+                           <Font size="37.0" />
+                        </font>
+                     </Text>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Guidance">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#GuidanceConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="GuidanceText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Light">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#LightConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="LightText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Mending">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#MendingConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="MendingText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Resistance">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#ResistanceConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="ResistanceText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Sacred Flames">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#SacredFlamesConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="SacredFlamesText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Spare the Dying">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#SpareDyingConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="SpareDyingText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Thaumaturgy">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#ThaumaturgyConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="ThaumaturgyText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </items>
+</SplitPane>
