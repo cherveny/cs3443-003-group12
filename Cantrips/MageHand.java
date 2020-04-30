@@ -1,3 +1,7 @@
+package Cantrips;
+
+import MainPackage.Spell;
+
 public class MageHand extends Spell{
   private int Level = 0;
   private String name = " Mage Hand";

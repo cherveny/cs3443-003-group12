@@ -1,3 +1,7 @@
+package Cantrips;
+
+import MainPackage.Spell;
+
 public class Thaumaturgy extends Spell {
   
   private int Level = 0;
