@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<SplitPane dividerPositions="0.0485" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Library.ClericSpellsPageController">
+   <items>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="800.0">
+         <children>
+            <MenuBar layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="800.0">
+               <menus>
+                  <Menu mnemonicParsing="false" onAction="#RaceMenu" text="Race" />
+                  <Menu mnemonicParsing="false" onAction="#ClassMenu" text="Class" />
+                  <Menu mnemonicParsing="false" onAction="#ProficiencyMenu" text="Proficiency" />
+                  <Menu mnemonicParsing="false" onAction="#SpellsMenu" text="Spells" />
+                  <Menu mnemonicParsing="false" onAction="#ReviewMenu" text="Review" />
+               </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+      <TabPane prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+     	 <tabs>
+     	 	<Tab text="Rules">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="127.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cantrip Spells">
+                           <font>
+                              <Font size="67.0" />
+                           </font>
+                         </Text>
+                     <Text layoutX="127.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick Three Spells">
+                        <font>
+                           <Font size="37.0" />
+                        </font>
+                     </Text>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="456.0" layoutY="184.0">
+                           <image>
+                              <Image url="@DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Guidance">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#GuidanceConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="GuidanceText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Guidance&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Touch&#10;Components: V,S&#10;Duration: 1 min&#10;&#10;School: Divination&#10;Attack/Save: None&#10;Damage/Effect: Buff&#10;&#10;Description: You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one ability check of its choice. It can roll the die before or after making the ability check. The spell then ends.&#10;" wrapText="true" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Light">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#LightConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="LightText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Light&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Touch&#10;Components: V,M *&#10;Duration: 1 hr&#10;&#10;School: Evocation&#10;Attack/Save: DEX Save&#10;Damage/Effect: Creation&#10;&#10;Description: You touch one object that is no larger than 10 feet in any dimension. Until the spell ends, the object sheds bright light in a 20-foot radius and dim light for an additional 20 feet. The light can be colored as you like. Completely covering the object with something opaque blocks the light. The spell ends if you cast it again or dismiss it as an action.&#10;If you target an object held or worn by a hostile creature, that creature must succeed on a Dexterity saving throw to avoid the spell.&#10;" wrapText="true" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Mending">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#MendingConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="MendingText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Mending&#10;&#10;Casting Time: 1 Minute&#10;Range/Area: Touch&#10;Components: V,S,M *&#10;Duration: Instantaneous&#10;&#10;School: Transmutation&#10;Attack/Save: None&#10;Damage/Effect: Utility&#10;&#10;Description: This spell repairs a single break or tear in an object you touch, such as a broken chain link, two halves of a broken key, a torn cloak, or a leaking wineskin. As long as the break or tear is no larger than 1 foot in any dimension, you mend it, leaving no trace of the former damage.&#10;This spell can physically repair a magic item or construct, but the spell can't restore magic to such an object.&#10;" wrapText="true" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Resistance">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#ResistanceConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="ResistanceText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Resistance&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Touch&#10;Components: V,S,M *&#10;Duration: 1 Min&#10;&#10;School: Abjuration&#10;Attack/Save: None&#10;Damage/Effect: Buff&#10;&#10;Description: You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one saving throw of its choice. It can roll the die before or after making the saving throw. The spell then ends.&#10;" wrapText="true" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Sacred Flames">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#SacredFlamesConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="SacredFlamesText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Sacred Flame&#10;&#10;Casting Time: 1 Action&#10;Range/Area: 60 ft&#10;Components: V,S&#10;Duration: instantaneous&#10;&#10;School: Evocation&#10;Attack/Save: DEX Save&#10;Damage/Effect: Radiant&#10;&#10;Description: Flame-like radiance descends on a creature that you can see within range. The target must succeed on a Dexterity saving throw or take 1d8 radiant damage. The target gains no benefit from cover for this saving throw.&#10;The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).&#10;" wrapText="true" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Spare the Dying">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#SpareDyingConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="SpareDyingText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Spare The Dying&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Toucht&#10;Components: V,S&#10;Duration: Instantaneous&#10;&#10;School: Necromancy&#10;Attack/Save: None&#10;Damage/Effect: Healing&#10;&#10;Description: You touch a living creature that has 0 hit points. The creature becomes stable. This spell has no effect on undead or constructs.&#10;" wrapText="true" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Thaumaturgy">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#ThaumaturgyConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="ThaumaturgyText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Thaumaturgy&#10;&#10;Casting Time: 1 Action&#10;Range/Area: 30 ft&#10;Components: V&#10;Duration: 1 Min&#10;&#10;School: Transmutation&#10;Attack/Save: None&#10;Damage/Effect: Control&#10;&#10;Description: You manifest a minor wonder, a sign of supernatural power, within range. You create one of the following magical effects within range:&#10;Your voice booms up to three times as loud as normal for 1 minute.&#10;You cause flames to flicker, brighten, dim, or change color for 1 minute.&#10;You cause harmless tremors in the ground for 1 minute.&#10;You create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or ominous whispers.&#10;You instantaneously cause an unlocked door or window to fly open or slam shut.&#10;You alter the appearance of your eyes for 1 minute.&#10;&#10;If you cast this spell multiple times, you can have up to three of its 1-minute effects active at a time, and you can dismiss such an effect as an action.&#10;" wrapText="true" />
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="532.0" layoutY="182.0">
+                           <image>
+                              <Image url="@../../DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </items>
+</SplitPane>

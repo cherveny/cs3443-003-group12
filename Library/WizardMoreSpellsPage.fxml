@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<SplitPane dividerPositions="0.0485" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Library.WizardMoreSpellsPageController">
+   <items>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="800.0">
+         <children>
+            <MenuBar layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="800.0">
+               <menus>
+                  <Menu mnemonicParsing="false" onAction="#RaceMenu" text="Race" />
+                  <Menu mnemonicParsing="false" onAction="#ClassMenu" text="Class" />
+                  <Menu mnemonicParsing="false" onAction="#ProficiencyMenu" text="Proficiency" />
+                  <Menu mnemonicParsing="false" onAction="#SpellsMenu" text="Spells" />
+                  <Menu mnemonicParsing="false" onAction="#ReviewMenu" text="Review" />
+               </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+      <TabPane prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+     	 <tabs>
+     	 	<Tab text="Rules">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="127.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1 Spells">
+                           <font>
+                              <Font size="67.0" />
+                           </font>
+                         </Text>
+                     <Text layoutX="127.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick Six Spells">
+                        <font>
+                           <Font size="37.0" />
+                        </font>
+                     </Text>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="440.0" layoutY="188.0">
+                           <image>
+                              <Image url="@DnD%20Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Absorb Elements">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#AbsorbElementsConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="AbsorbElementsText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Absorb Elements&#10;&#10;Casting Time: 1 Reaction&#10;Range/Area: Self&#10;Components: S&#10;Duration: 1 Round&#10;&#10;School: Abjuration&#10;Attack/Save: None&#10;Damage/Effect: Acid&#10;&#10;Description: The spell captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra 1d6 damage of the triggering type, and the spell ends.&#10;At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each slot level above 1st.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Acid Stream">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#AcidStreamConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="AcidStreamText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Acid Stream&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Self&#10;Components: V,S,M *&#10;Duration: 1 Min&#10;&#10;School: Evocation&#10;Attack/Save: DEX Save&#10;Damage/Effect: Acid&#10;&#10;Description: A stream of acid emanates from you in a line 30 feet long and 5 feet wide in a direction you choose. Each creature in the line must succeed on a Dexterity saving throw or be covered in acid for the spellâ€™s duration or until a creature uses its action to scrape or wash the acid off itself or another creature. A creature covered in the acid takes 3d4 acid damage at start of each of its turns.&#10;At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d4 for each slot level above 1st.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Alarm">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#AlarmConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="AlarmText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Alarm&#10;&#10;Casting Time: 1 Min&#10;Range/Area: 30 ft&#10;Components: V,S,M *&#10;Duration: 8 Hours&#10;&#10;School: Abjuration&#10;Attack/Save: None&#10;Damage/Effect: Detection&#10;&#10;Description: You set an alarm against unwanted intrusion. Choose a door, a window, or an area within range that is no larger than a 20-foot cube. Until the spell ends, an alarm alerts you whenever a Tiny or larger creature touches or enters the warded area. When you cast the spell, you can designate creatures that won't set off the alarm. You also choose whether the alarm is mental or audible.&#10;A mental alarm alerts you with a ping in your mind if you are within 1 mile of the warded area. This ping awakens you if you are sleeping.&#10;An audible alarm produces the sound of a hand bell for 10 seconds within 60 feet.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Burning Hands">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#BurningHandsConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="BurningHandsText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Burning Hands&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Self&#10;Components: V,S&#10;Duration: Instantaneous&#10;&#10;School: Evocation&#10;Attack/Save: DEX Save&#10;Damage/Effect: Fire&#10;&#10;Description: As you hold your hands with thumbs touching and fingers spread, a thin sheet of flames shoots forth from your outstretched fingertips. Each creature in a 15-foot cone must make a Dexterity saving throw. A creature takes 3d6 fire damage on a failed save, or half as much damage on a successful one.&#10;The fire ignites any flammable objects in the area that aren't being worn or carried.&#10;At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Catapult">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#CatapultConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="CatapultText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Catapult&#10;&#10;Casting Time: 1 Action&#10;Range/Area: 60 ft&#10;Components: S&#10;Duration: Instantaneous&#10;&#10;School: Transmutation&#10;Attack/Save: DEX Save&#10;Damage/Effect: Bludgeoning&#10;&#10;Description: Choose one object weighing 1 to 5 pounds within range that isnâ€™t being worn or carried. The object flies in a straight line up to 90 feet in a direction you choose before falling to the ground, stopping early if it impacts against a solid surface. If the object would strike a creature, that creature must make a Dexterity saving throw. On a failed save, the object strikes the target and stops moving. When the object strikes something, the object and what it strikes each take 3d8 bludgeoning damage.&#10;At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the maximum weight of objects that you can target with this spell increases by 5 pounds, and the damage increases by 1d8, for each slot level above 1st.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Charm Person">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#CharmPersonConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="CharmPersonText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Charm Person&#10;&#10;Casting Time: 1 Action&#10;Range/Area: 30 ft&#10;Components: V,S&#10;Duration: 1 Hour&#10;&#10;School: Enchantment&#10;Attack/Save: WIS Save&#10;Damage/Effect: Charmed&#10;&#10;Description: You attempt to charm a humanoid you can see within range. It must make a Wisdom saving throw, and does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is charmed by you until the spell ends or until you or your companions do anything harmful to it. The charmed creature regards you as a friendly acquaintance. When the spell ends, the creature knows it was charmed by you.&#10;At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Color Spray">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#ColorSprayConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="ColorSprayText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Color Spray&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Self&#10;Components: V,S,M *&#10;Duration: 1 Round&#10;&#10;School: Illusion&#10;Attack/Save: None&#10;Damage/Effect: Blinded&#10;&#10;Description: A dazzling array of flashing, colored light springs from your hand. Roll 6d10; the total is how many hit points of creatures this spell can affect. Creatures in a 15-foot cone originating from you are affected in ascending order of their current hit points (ignoring unconscious creatures and creatures that can't see).&#10;Starting with the creature that has the lowest current hit points, each creature affected by this spell is blinded until the end of your next turn. Subtract each creature's hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total for that creature to be affected.&#10;At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, roll an additional 2d10 for each slot level above 1st.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Comprehend Language">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#ComprehendLanguageConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="ComprehendLanguageText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Comprehend Language&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Self&#10;Components: V,S,M *&#10;Duration: 1 Hour&#10;&#10;School: Divination&#10;Attack/Save: None&#10;Damage/Effect: Social&#10;&#10;Description: For the duration, you understand the literal meaning of any spoken language that you hear. You also understand any written language that you see, but you must be touching the surface on which the words are written. It takes about 1 minute to read one page of text.&#10;This spell doesn't decode secret messages in a text or a glyph, such as an arcane sigil, that isn't part of a written language.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Detect Magic">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#DetectMagicConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="DetectMagicText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Detect Magic&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Self&#10;Components: V,S&#10;Duration: 10 Min&#10;&#10;School: Divination&#10;Attack/Save: None&#10;Damage/Effect: Detection&#10;&#10;Description: For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any.&#10;The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Disguise Self">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#DisguiseSelfConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="DisguiseSelfText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Disguise Self&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Self&#10;Components: V,S&#10;Duration: 1 Hour&#10;&#10;School: Illusion&#10;Attack/Save: None&#10;Damage/Effect: Shapechanging&#10;&#10;Description: You make yourself--including your clothing, armor, weapons, and other belongings on your person--look different until the spell ends or until you use your action to dismiss it. You can seem 1 foot shorter or taller and can appear thin, fat, or in between. You can't change your body type, so you must adopt a form that has the same basic arrangement of limbs. Otherwise, the extent of the illusion is up to you.&#10;The changes wrought by this spell fail to hold up to physical inspection. For example, if you use this spell to add a hat to your outfit, objects pass through the hat, and anyone who touches it would feel nothing or would feel your head and hair. If you use this spell to appear thinner than you are, the hand of someone who reaches out to touch you would bump into you while it was seemingly still in midair.&#10;To discern that you are disguised, a creature can use its action to inspect your appearance and must succeed on an Intelligence (Investigation) check against your spell save DC.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Earth Tremor">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#EarthTremorConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="EarthTremorText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Earth Tremor&#10;&#10;Casting Time: 1 Action&#10;Range/Area: 10 ft&#10;Components: V,S&#10;Duration: Instantaneous&#10;&#10;School: Evocaion&#10;Attack/Save: DEX Save&#10;Damage/Effect: Bludgeoning&#10;&#10;Description: You cause a tremor in the ground within range. Each creature other than you in that area must make a Dexterity saving throw. On a failed save, a creature takes 1d6 bludgeoning damage and is knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand.&#10;At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Expeditious Retreat">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#ExpeditiousRetreatConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="ExpeditiousRetreatText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Expeditious Retreat&#10;&#10;Casting Time: 1 Bonus Action&#10;Range/Area: Self&#10;Components: V,S&#10;Duration: 10 Min&#10;&#10;School: Transmutation&#10;Attack/Save: None&#10;Damage/Effect: Movement&#10;&#10;Description: This spell allows you to move at an incredible pace. When you cast this spell, and then as a bonus action on each of your turns until the spell ends, you can take the Dash action.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="False Life">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#FalseLifeConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="FalseLifeText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: False Life&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Self&#10;Components: V,S,M *&#10;Duration: 1 Hour&#10;&#10;School: Necromancy&#10;Attack/Save: None&#10;Damage/Effect: Healing&#10;&#10;Description: Bolstering yourself with a necromantic facsimile of life, you gain 1d4 + 4 temporary hit points for the duration.&#10;At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, you gain 5 additional temporary hit points for each slot level above 1st.&#10;" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Feather Fall">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#FeatherFallConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="FeatherFallText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Feather Fall&#10;&#10;Casting Time: 1 Reaction&#10;Range/Area: 60 ft&#10;Components: V,M **&#10;Duration: 1 Min&#10;&#10;School: Transmutation&#10;Attack/Save: None&#10;Damage/Effect: Exploration&#10;&#10;Description: Choose up to five falling creatures within range. A falling creature's rate of descent slows to 60 feet per round until the spell ends. If the creature lands before the spell ends, it takes no falling damage and can land on its feet, and the spell ends for that creature.&#10;" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Floating Disk">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#FloatingDiskConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="FloatingDiskText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Floating Disk&#10;&#10;Casting Time: 1 Action&#10;Range/Area: 30 ft&#10;Components: V,S,M *&#10;Duration: 1 Hour&#10;&#10;School: Conjuration&#10;Attack/Save: None&#10;Damage/Effect: Movement&#10;&#10;Description: This spell creates a circular, horizontal plane of force, 3 feet in diameter and 1 inch thick, that floats 3 feet above the ground in an unoccupied space of your choice that you can see within range. The disk remains for the duration, and can hold up to 500 pounds. If more weight is placed on it, the spell ends, and everything on the disk falls to the ground.&#10;The disk is immobile while you are within 20 feet of it. If you move more than 20 feet away from it, the disk follows you so that it remains within 20 feet of you. It can move across uneven terrain, up or down stairs, slopes and the like, but it can't cross an elevation change of 10 feet or more. For example, the disk can't move across a 10-foot-deep pit, nor could it leave such a pit if it was created at the bottom.&#10;If you move more than 100 feet from the disk (typically because it can't move around an obstacle to follow you), the spell ends.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Fog Cloud">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#FogCloudConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="FogCloudText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Fog Cloud&#10;&#10;Casting Time: 1 Action&#10;Range/Area: 120 ft&#10;Components: V,S&#10;Duration: 1 Hour&#10;&#10;School: Conjuration&#10;Attack/Save: None&#10;Damage/Effect: Control&#10;&#10;Description: You create a 20-foot-radius sphere of fog centered on a point within range. The sphere spreads around corners, and its area is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.&#10;At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the radius of the fog increases by 20 feet for each slot level above 1st.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Grease">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#RayFrostConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="Grease" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Grease&#10;&#10;Casting Time: 1 Action&#10;Range/Area: 60 ft&#10;Components: V,S,M *&#10;Duration: 1 Min&#10;&#10;School: Conjuration&#10;Attack/Save: DEX Save&#10;Damage/Effect: Prone&#10;&#10;Description: Slick grease covers the ground in a 10-foot square centered on a point within range and turns it into difficult terrain for the duration.&#10;When the grease appears, each creature standing in its area must succeed on a Dexterity saving throw or fall prone. A creature that enters the area or ends its turn there must also succeed on a Dexterity saving throw or fall prone.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Hideous Laughter">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#HideousLaughterConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="HideousLaughterText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Hideous Laughter&#10;&#10;Casting Time: 1 Action&#10;Range/Area: 30 ft&#10;Components: V,S,M *&#10;Duration: 1 Min&#10;&#10;School: Enchantment&#10;Attack/Save: WIS Save&#10;Damage/Effect: Prone&#10;&#10;Description: A creature of your choice that you can see within range perceives everything as hilariously funny and falls into fits of laughter if this spell affects it. The target must succeed on a Wisdom saving throw or fall prone, becoming incapacitated and unable to stand up for the duration. A creature with an Intelligence score of 4 or less isn't affected.&#10;At the end of each of its turns, and each time it takes damage, the target can make another Wisdom saving throw. The target has advantage on the saving throw if it's triggered by damage. On a success, the spell ends.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Ice Knife">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#IceKnifeConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="IceKnifeText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Ice Knife&#10;&#10;Casting Time: 1 Action&#10;Range/Area: 60 ft&#10;Components: S,M *&#10;Duration: Instantaneous&#10;&#10;School: Conjuration&#10;Attack/Save: DEX Save&#10;Damage/Effect: Piercing&#10;&#10;Description: You create a shard of ice and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 piercing damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 2d6 cold damage.&#10;At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the cold damage increases by 1d6 for each slot level above 1st.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Identify">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#IdentifyConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="IdentifyText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Identify&#10;&#10;Casting Time: 1 Min&#10;Range/Area: Touch&#10;Components: V,S,M *&#10;Duration: Instantaneous&#10;&#10;School: Divination&#10;Attack/Save: None&#10;Damage/Effect: Detection&#10;&#10;Description: You choose one object that you must touch throughout the casting of the spell. If it is a magic item or some other magic-imbued object, you learn its properties and how to use them, whether it requires attunement to use, and how many charges it has, if any. You learn whether any spells are affecting the item and what they are. If the item was created by a spell, you learn which spell created it.&#10;If you instead touch a creature throughout the casting, you learn what spells, if any, are currently affecting it.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Illusory Script">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#IllusoryScriptConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="IllusoryScriptText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Illusory Script&#10;&#10;Casting Time: 1 Min&#10;Range/Area: Touch&#10;Components: S,M *&#10;Duration: 10 Days&#10;&#10;School: Illusion&#10;Attack/Save: None&#10;Damage/Effect: Communication&#10;&#10;Description: You write on parchment, paper, or some other suitable writing material and imbue it with a potent illusion that lasts for the duration.&#10;To you and any creatures you designate when you cast the spell, the writing appears normal, written in your hand, and conveys whatever meaning you intended when you wrote the text. To all others, the writing appears as if it were written in an unknown or magical script that is unintelligible. Alternatively, you can cause the writing to appear to be an entirely different message, written in a different hand and language, though the language must be one you know.&#10;Should the spell be dispelled, the original script and the illusion both disappear.&#10;A creature with truesight can read the hidden message." />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Jump">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#JumpConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="JumpText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Jump&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Touch&#10;Components: V,S,M *&#10;Duration: 1 Min&#10;&#10;School: Transmutation&#10;Attack/Save: None&#10;Damage/Effect: Movement&#10;&#10;Description: You touch a creature. The creature's jump distance is tripled until the spell ends.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Longstrider">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#LongStriderConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="LongStriderText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Longstrider&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Touch&#10;Components: V,S,M *&#10;Duration: 1 Hour&#10;&#10;School: Transmutation&#10;Attack/Save: None&#10;Damage/Effect: Buff&#10;&#10;Description: You touch a creature. The target's speed increases by 10 feet until the spell ends.&#10;At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Mage Armor">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#MageArmorConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="MageArmorConfirm" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Mage Armor&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Touch&#10;Components: V,S,M *&#10;Duration: 8 Hour&#10;&#10;School: Abjuration&#10;Attack/Save: None&#10;Damage/Effect: Buff&#10;&#10;Description: You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends. The target's base AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor or if you dismiss the spell as an action.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Magic Missle">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#MagicMissleConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="MagicMissleText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Magic Missile&#10;&#10;Casting Time: 1 Action&#10;Range/Area: 120 ft&#10;Components: V,S&#10;Duration: Instantaneous&#10;&#10;School: Evocation&#10;Attack/Save: None&#10;Damage/Effect: Force&#10;&#10;Description: You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals 1d4 + 1 force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several.&#10;At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart for each slot level above 1st.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Protection from Evil and Good">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#ProtectionEvilGoodConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="ProtectionEvilGoodText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Protection from Evil and Good&#10;&#10;Casting Time: 1 Action&#10;Range/Area: Touch&#10;Components: V,S,M *&#10;Duration: 10 Min&#10;&#10;School: Abjuration&#10;Attack/Save: None&#10;Damage/Effect: Buff&#10;&#10;Description: Until the spell ends, one willing creature you touch is protected against certain types of creatures: aberrations, celestials, elementals, fey, fiends, and undead.&#10;The protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target. The target also can't be charmed, frightened, or possessed by them. If the target is already charmed, frightened, or possessed by such a creature, the target has advantage on any new saving throw against the relevant effect.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Shield">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#ShieldConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="ShieldText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Shield&#10;&#10;Casting Time: 1 Reaction&#10;Range/Area: Self&#10;Components: V,S&#10;Duration: 1 Round&#10;&#10;School: Abjuration&#10;Attack/Save: None&#10;Damage/Effect: Warding&#10;&#10;Description: An invisible barrier of magical force appears and protects you. Until the start of your next turn, you have a +5 bonus to AC, including against the triggering attack, and you take no damage from magic missile.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Silent Image">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#SilentImageConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="SilentImageText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Silent Image&#10;&#10;Casting Time: 1  Action&#10;Range/Area: 60 ft&#10;Components: V,S,M *&#10;Duration: 10 Min&#10;&#10;School: Illusion&#10;Attack/Save: None&#10;Damage/Effect: Control&#10;&#10;Description: You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 15-foot cube. The image appears at a spot within range and lasts for the duration. The image is purely visual; it isn't accompanied by sound, smell, or other sensory effects.&#10;You can use your action to cause the image to move to any spot within range. As the image changes location, you can alter its appearance so that its movements appear natural for the image. For example, if you create an image of a creature and move it, you can alter the image so that it appears to be walking.&#10;Physical interaction with the image reveals it to be an illusion, because things can pass through it. A creature that uses its action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Sleep">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#SleepConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="SleepText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Sleep&#10;&#10;Casting Time: 1  Action&#10;Range/Area: 90 ft&#10;Components: V,S,M *&#10;Duration: 1 Min&#10;&#10;School: Enchantment&#10;Attack/Save: None&#10;Damage/Effect: Unconscious&#10;&#10;Description: This spell sends creatures into a magical slumber. Roll 5d8; the total is how many hit points of creatures this spell can affect. Creatures within 20 feet of a point you choose within range are affected in ascending order of their current hit points (ignoring unconscious creatures).&#10;Starting with the creature that has the lowest current hit points, each creature affected by this spell falls unconscious until the spell ends, the sleeper takes damage, or someone uses an action to shake or slap the sleeper awake. Subtract each creature's hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total for that creature to be affected.&#10;Undead and creatures immune to being charmed aren't affected by this spell.&#10;At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, roll an additional 2d8 for each slot level above 1st.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Thunderwave">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#ThunderwaveConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="ThunderwaveText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Thunderwave&#10;&#10;Casting Time: 1  Action&#10;Range/Area: Self&#10;Components: V,S&#10;Duration: Instantaneous&#10;&#10;School: Evocation&#10;Attack/Save: CON Save&#10;Damage/Effect: Thunder&#10;&#10;Description: A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes 2d8 thunder damage and is pushed 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed.&#10;In addition, unsecured objects that are completely within the area of effect are automatically pushed 10 feet away from you by the spell's effect, and the spell emits a thunderous boom audible out to 300 feet.&#10;At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Unseen Servant">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="672.0" layoutY="524.0" mnemonicParsing="false" onAction="#UnseenServantConfirm" text="Confirm" />
+                        <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spell Description">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                        <TextArea fx:id="UnseenServantText" layoutX="14.0" layoutY="93.0" prefHeight="377.0" prefWidth="479.0" text="Spell: Unseen Servant&#10;&#10;Casting Time: 1  Action&#10;Range/Area: 60 ft&#10;Components: V,S&#10;Duration: 1 Hour&#10;&#10;School: Conjuration&#10;Attack/Save: None&#10;Damage/Effect: Control&#10;&#10;Description: This spell creates an invisible, mindless, shapeless, Medium force that performs simple tasks at your command until the spell ends. The servant springs into existence in an unoccupied space on the ground within range. It has AC 10, 1 hit point, and a Strength of 2, and it can't attack. If it drops to 0 hit points, the spell ends.&#10;Once on each of your turns as a bonus action, you can mentally command the servant to move up to 15 feet and interact with an object. The servant can perform simple tasks that a human servant could do, such as fetching things, cleaning, mending, folding clothes, lighting fires, serving food, and pouring wine. Once you give the command, the servant performs the task to the best of its ability until it completes the task, then waits for your next command.&#10;If you command the servant to perform a task that would move it more than 60 feet away from you, the spell ends." wrapText="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </items>
+</SplitPane>

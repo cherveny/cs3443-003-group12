@@ -1,3 +1,7 @@
+package Cantrips;
+
+import MainPackage.Spell;
+
 public class MoldEarth extends Spell {
   
   private int Level = 0;
